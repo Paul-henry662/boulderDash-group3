@@ -5,7 +5,7 @@ package entity;
  *
  * @author Jean-Aymeric Diet
  */
-public class HelloWorld extends Entity {
+public class Level extends Entity {
 
 	/** The id. */
 	private int			id;
@@ -26,7 +26,7 @@ public class HelloWorld extends Entity {
 	 * @param message
 	 *          the message
 	 */
-	public HelloWorld(final int id, final String key, final String message) {
+	public Level(final int id, final String key, final String message) {
 		this.setId(id);
 		this.setKey(key);
 		this.setMessage(message);
@@ -35,7 +35,7 @@ public class HelloWorld extends Entity {
 	/**
 	 * Instantiates a new hello world.
 	 */
-	public HelloWorld() {
+	public Level() {
 		this(0, "", "");
 	}
 
