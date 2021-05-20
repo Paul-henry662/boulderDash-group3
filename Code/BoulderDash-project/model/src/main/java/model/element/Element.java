@@ -1,7 +1,11 @@
 package model.element;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
+
+import javax.imageio.ImageIO;
 
 public abstract class Element {
 	
@@ -15,6 +19,7 @@ public abstract class Element {
 	 * 		the base image url for element's sprites.
 	 */
 	public Element(String imageUrl) {
+		this.sprites = new HashMap<String, BufferedImage>();
 	}
 	
 	/**Get an Element's image sprite by key
@@ -23,7 +28,7 @@ public abstract class Element {
 	 * @return
 	 */
 	public BufferedImage getSprite(String key) {
-		return null;
+		return this.sprites.get(key);
 	}
 
 	/**Set an Element's image sprite by key
@@ -31,15 +36,16 @@ public abstract class Element {
 	 * @param sprite
 	 * 		the new sprite.
 	 */
-	private void setSprite(String key, BufferedImage sprite) {
+	protected void setSprite(String key, BufferedImage sprite) {
+		this.sprites.put(key, sprite);
 	}
 	
 	/**Load images for Element's sprites
 	 * 
 	 * @param imageUrl
 	 * 			the url of the base image.
+	 * @throws IOException 
 	 */
-	public void loadImages(String imageUrl) {
-		
+	public void loadImages(String imageUrl) throws IOException {
 	}
 }

@@ -15,8 +15,10 @@ public abstract class Mobile extends Element {
 	 * @param imageUrl
 	 * 		element's image sprite url.
 	 */
-	public Mobile(String imageUrl) {
+	public Mobile(String imageUrl, int x, int y) {
 		super(imageUrl);
+		this.setX(x);
+		this.setY(y);
 	}
 	
 	/** Get the x position of a Mobile element*/
@@ -49,21 +51,21 @@ public abstract class Mobile extends Element {
 	
 	/**Move a Mobile element on the left*/
 	public void moveLeft() {
-		
+		this.setX(this.getX()-1);
 	}
 	
 	/**Move a Mobile element on the right*/
 	public void moveRight() {
-		
+		this.setX(this.getX()+1);
 	}
 	
 	/**Move a Mobile element upward*/
 	public void moveUp() {
-		
+		this.setY(this.getY()-1);
 	}
 	
 	/**Move a Mobile element downward*/
 	public void moveDown() {
-		
+		this.setY(this.getY()+1);
 	}
 }
