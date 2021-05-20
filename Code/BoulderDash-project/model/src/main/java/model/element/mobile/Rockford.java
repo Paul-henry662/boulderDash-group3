@@ -19,6 +19,7 @@ public class Rockford extends Mobile {
 	@Override
 	public void loadImages(String imageUrl) throws IOException {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
+		
 		BufferedImage stepRightPhaseOne = baseImage.getSubimage(0, 48, 16, 16);
 		BufferedImage stepRightPhaseTwo = baseImage.getSubimage(16, 48, 16, 16);
 		BufferedImage stepRightPhaseThree = baseImage.getSubimage(32, 48, 16, 16);
