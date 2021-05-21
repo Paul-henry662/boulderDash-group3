@@ -1,0 +1,31 @@
+package model.element.mobile;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import model.element.ElementTest;
+
+public abstract class MobileTest extends ElementTest {
+	
+	@Test
+	public void testMoveLeft() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMoveRight() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMoveUp() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMoveDown() {
+		fail("Not yet implemented");
+	}
+
+}

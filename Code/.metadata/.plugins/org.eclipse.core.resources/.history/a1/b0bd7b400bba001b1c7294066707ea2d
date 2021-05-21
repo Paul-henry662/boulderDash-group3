@@ -1,0 +1,47 @@
+package model.element.motionless;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class DiamondTest extends MotionlessTest {
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		this.element = new Diamond(null);
+		this.element.loadImages("diamond.png");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		super.tearDown();
+	}
+	
+	@Override
+	public void testGetSprite() {
+		assertNotNull(this.element.getSprite("stepRightPhaseOne"));
+	}
+	
+	@Override
+	public void testLoadImages() {
+		assertNotNull(this.element.getSprite("stepRightPhaseOne"));
+		assertNotNull(this.element.getSprite("stepRightPhaseTwo"));
+		assertNotNull(this.element.getSprite("stepRightPhaseThree"));
+		assertNotNull(this.element.getSprite("stepLeftPhaseOne"));
+		assertNotNull(this.element.getSprite("stepLeftPhaseTwo"));
+		assertNotNull(this.element.getSprite("stepLeftPhaseThree"));
+	}
+
+}
