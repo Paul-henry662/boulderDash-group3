@@ -11,31 +11,9 @@ import org.junit.Test;
 public abstract class ElementTest {
 	
 	protected Element element;
-	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-	
 	@Test
 	public void testLoadImages() {
 		fail("Not yet implemented");
 	}
-	
-	@Test
-	public void testGetSprite() {
-		fail("Not yet implemented");
-	}
-
 }
