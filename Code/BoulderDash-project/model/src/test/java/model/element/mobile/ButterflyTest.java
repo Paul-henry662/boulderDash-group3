@@ -11,7 +11,7 @@ public class ButterflyTest extends MobileTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.element = new Butterfly(null, 0, 0);
+		this.element = new Butterfly();
 	}
 
 	@Override
@@ -22,10 +22,10 @@ public class ButterflyTest extends MobileTest {
 			fail("Can't read input file");
 		}
 		
-		assertNotNull(this.element.getSprite("flyPhaseOne"));
-		assertNotNull(this.element.getSprite("flyPhaseTwo"));
-		assertNotNull(this.element.getSprite("flyPhaseThree"));
-		assertNotNull(this.element.getSprite("flyPhaseFour"));
+		assertNotNull(this.element.getSpriteByKey("flyPhaseOne"));
+		assertNotNull(this.element.getSpriteByKey("flyPhaseTwo"));
+		assertNotNull(this.element.getSpriteByKey("flyPhaseThree"));
+		assertNotNull(this.element.getSpriteByKey("flyPhaseFour"));
 	}
 
 }

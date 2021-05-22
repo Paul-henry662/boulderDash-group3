@@ -11,7 +11,7 @@ public class RockfordTest extends MobileTest {
 
 	@Before
 	public void setUp(){
-		this.element = new Rockford(null, 0, 0);
+		this.element = new Rockford();
 	}
 
 	@Override
@@ -22,12 +22,12 @@ public class RockfordTest extends MobileTest {
 			fail("Can't read input file");
 		}
 		
-		assertNotNull(this.element.getSprite("stepRightPhaseOne"));
-		assertNotNull(this.element.getSprite("stepRightPhaseTwo"));
-		assertNotNull(this.element.getSprite("stepRightPhaseThree"));
-		assertNotNull(this.element.getSprite("stepLeftPhaseOne"));
-		assertNotNull(this.element.getSprite("stepLeftPhaseTwo"));
-		assertNotNull(this.element.getSprite("stepLeftPhaseThree"));
+		assertNotNull(this.element.getSpriteByKey("stepRightPhaseOne"));
+		assertNotNull(this.element.getSpriteByKey("stepRightPhaseTwo"));
+		assertNotNull(this.element.getSpriteByKey("stepRightPhaseThree"));
+		assertNotNull(this.element.getSpriteByKey("stepLeftPhaseOne"));
+		assertNotNull(this.element.getSpriteByKey("stepLeftPhaseTwo"));
+		assertNotNull(this.element.getSpriteByKey("stepLeftPhaseThree"));
 	}
 	
 }

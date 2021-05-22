@@ -22,7 +22,7 @@ public class BrokenBrickTest extends BrickTest {
 
 	@Before
 	public void setUp() {
-		this.element = new BrokenBrick(null);
+		this.element = new BrokenBrick();
 		
 		try {
 			this.element.loadImages("sprites/74359.png");
@@ -37,7 +37,7 @@ public class BrokenBrickTest extends BrickTest {
 	
 	@Override 
 	public void testLoadImages() {
-		assertNotNull(this.element.getSprite("normal"));
+		assertNotNull(this.element.getSpriteByKey("normal"));
 	}
 
 }

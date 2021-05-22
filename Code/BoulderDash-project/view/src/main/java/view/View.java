@@ -15,6 +15,10 @@ import contract.IView;
  * @author Jean-Aymeric Diet
  */
 public final class View implements IView, Runnable {
+	
+	
+	/**Size of a square*/
+	static final int SQUARE_SIZE = 16;
 
 	/** The frame. */
 	private final ViewFrame viewFrame;

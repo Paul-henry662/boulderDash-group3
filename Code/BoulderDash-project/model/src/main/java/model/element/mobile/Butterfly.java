@@ -1,5 +1,6 @@
 package model.element.mobile;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +12,10 @@ public class Butterfly extends Enemy {
 		super(imageUrl, x, y);
 	}
 	
+	public Butterfly() {
+		super();
+	}
+	
 	@Override
 	public void loadImages(String imageUrl) throws IOException {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
@@ -20,9 +25,12 @@ public class Butterfly extends Enemy {
 		BufferedImage flyPhaseThree = baseImage.getSubimage(176, 32, 16, 16);
 		BufferedImage flyPhaseFour = baseImage.getSubimage(176, 48, 16, 16);
 		
-		this.setSprite("flyPhaseOne", flyPhaseOne);
-		this.setSprite("flyPhaseTwo", flyPhaseTwo);
-		this.setSprite("flyPhaseThree", flyPhaseThree);
-		this.setSprite("flyPhaseFour", flyPhaseFour);
+		this.setSpriteByKey("flyPhaseOne", flyPhaseOne);
+		this.setSpriteByKey("flyPhaseTwo", flyPhaseTwo);
+		this.setSpriteByKey("flyPhaseThree", flyPhaseThree);
+		this.setSpriteByKey("flyPhaseFour", flyPhaseFour);
+		
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseOne"));
 	}
+	
 }

@@ -1,5 +1,6 @@
 package model.element.mobile;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +17,10 @@ public class Rockford extends Mobile {
 		super(imageUrl, x, y);
 	}
 	
+	public Rockford() {
+		super();
+	}
+	
 	@Override
 	public void loadImages(String imageUrl) throws IOException {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
@@ -27,11 +32,13 @@ public class Rockford extends Mobile {
 		BufferedImage stepLeftPhaseTwo = baseImage.getSubimage(16, 16, 16, 16);
 		BufferedImage stepLeftPhaseThree = baseImage.getSubimage(32, 16, 16, 16);
 		
-		this.setSprite("stepRightPhaseOne", stepRightPhaseOne);
-		this.setSprite("stepRightPhaseTwo", stepRightPhaseTwo);
-		this.setSprite("stepRightPhaseThree", stepRightPhaseThree);
-		this.setSprite("stepLeftPhaseOne", stepLeftPhaseOne);
-		this.setSprite("stepLeftPhaseTwo", stepLeftPhaseTwo);
-		this.setSprite("stepLeftPhaseThree", stepLeftPhaseThree);
+		this.setSpriteByKey("stepRightPhaseOne", stepRightPhaseOne);
+		this.setSpriteByKey("stepRightPhaseTwo", stepRightPhaseTwo);
+		this.setSpriteByKey("stepRightPhaseThree", stepRightPhaseThree);
+		this.setSpriteByKey("stepLeftPhaseOne", stepLeftPhaseOne);
+		this.setSpriteByKey("stepLeftPhaseTwo", stepLeftPhaseTwo);
+		this.setSpriteByKey("stepLeftPhaseThree", stepLeftPhaseThree);
+		
+		this.setCurrentSprite(this.getSpriteByKey("stepRightPhaseOne"));
 	}
 }

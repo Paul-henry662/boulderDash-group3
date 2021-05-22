@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -131,7 +132,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 400 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(this.getModel().getMap().getWidth()*View.SQUARE_SIZE, this.getModel().getMap().getHeight()*View.SQUARE_SIZE);
 		this.setLocationRelativeTo(null);
 	}
 
@@ -160,7 +161,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		//this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		System.out.println("You pressed "+e.getKeyCode());
 	}
 
 	/*

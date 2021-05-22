@@ -73,22 +73,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				this.model.loadLevel("GB");
-				break;
-			case Francais:
-				this.model.loadLevel("FR");
-				break;
-			case Deutsch:
-				this.model.loadLevel("DE");
-				break;
-			case Indonesia:
-				this.model.loadLevel("ID");
-				break;
-			default:
-				break;
-		}
+
 	}
 
 }

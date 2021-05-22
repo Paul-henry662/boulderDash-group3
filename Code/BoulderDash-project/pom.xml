@@ -17,6 +17,7 @@
 		<module>contract</module>
 		<module>model</module>
 		<module>entity</module>
+		<module>../../Ressources/showboard-master</module>
 	</modules>
 	<dependencies>
 		<dependency>

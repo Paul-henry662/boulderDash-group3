@@ -14,7 +14,7 @@ public class DiamondTest extends MotionlessTest {
 
 	@Before
 	public void setUp(){
-		this.element = new Diamond(null);
+		this.element = new Diamond();
 	}
 	
 	@Override
@@ -25,7 +25,7 @@ public class DiamondTest extends MotionlessTest {
 			fail("Can't read input file");
 		}
 		
-		assertNotNull(this.element.getSprite("normal"));
+		assertNotNull(this.element.getSpriteByKey("normal"));
 	}
 
 }

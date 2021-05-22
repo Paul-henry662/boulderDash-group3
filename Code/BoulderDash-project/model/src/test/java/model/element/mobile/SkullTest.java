@@ -9,7 +9,7 @@ public class SkullTest extends MobileTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.element = new Skull(null, 0, 0);
+		this.element = new Skull();
 	}
 	
 	@Override
@@ -20,10 +20,10 @@ public class SkullTest extends MobileTest {
 			fail("Can't read input file");
 		}
 		
-		assertNotNull(this.element.getSprite("PhaseOne"));
-		assertNotNull(this.element.getSprite("PhaseTwo"));
-		assertNotNull(this.element.getSprite("PhaseThree"));
-		assertNotNull(this.element.getSprite("PhaseFour"));
+		assertNotNull(this.element.getSpriteByKey("PhaseOne"));
+		assertNotNull(this.element.getSpriteByKey("PhaseTwo"));
+		assertNotNull(this.element.getSpriteByKey("PhaseThree"));
+		assertNotNull(this.element.getSpriteByKey("PhaseFour"));
 	}
 
 }

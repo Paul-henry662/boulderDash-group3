@@ -64,7 +64,9 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getLevel().getMessage(), 10, 20);
+		for(int y=0; y<this.getViewFrame().getModel().getMap().getHeight(); y++) {
+			for(int x=0; x<this.getViewFrame().getModel().getMap().getWidth(); x++)
+				graphics.drawImage(this.getViewFrame().getModel().getMap().getOnTheMapXY(x, y).getCurrentSprite(), x*View.SQUARE_SIZE, y*View.SQUARE_SIZE, null);
+		}
 	}
 }

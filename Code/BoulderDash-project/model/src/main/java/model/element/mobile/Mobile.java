@@ -2,7 +2,7 @@ package model.element.mobile;
 
 import model.element.Element;
 
-public abstract class Mobile extends Element {
+public abstract class Mobile extends Element{
 	
 	/** The x position of a Mobile element*/
 	private int x;
@@ -19,6 +19,10 @@ public abstract class Mobile extends Element {
 		super(imageUrl);
 		this.setX(x);
 		this.setY(y);
+	}
+	
+	public Mobile() {
+		super();
 	}
 	
 	/** Get the x position of a Mobile element*/
@@ -51,21 +55,21 @@ public abstract class Mobile extends Element {
 	
 	/**Move a Mobile element on the left*/
 	public void moveLeft() {
-		this.setX(this.getX()-1);
+		this.setX(this.getX()-16);
 	}
 	
 	/**Move a Mobile element on the right*/
 	public void moveRight() {
-		this.setX(this.getX()+1);
+		this.setX(this.getX()+16);
 	}
 	
 	/**Move a Mobile element upward*/
 	public void moveUp() {
-		this.setY(this.getY()-1);
+		this.setY(this.getY()-16);
 	}
 	
 	/**Move a Mobile element downward*/
 	public void moveDown() {
-		this.setY(this.getY()+1);
+		this.setY(this.getY()+16);
 	}
 }

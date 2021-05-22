@@ -1,5 +1,6 @@
 package model.element.mobile;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +10,10 @@ import javax.imageio.ImageIO;
 public class Skull extends Enemy {
 	public Skull(String imageUrl, int x, int y) {
 		super(imageUrl, x, y);
+	}
+	
+	public Skull() {
+		super();
 	}
 	
 	@Override
@@ -21,9 +26,12 @@ public class Skull extends Enemy {
 		BufferedImage PhaseFour = baseImage.getSubimage(64, 16, 16, 16);
 
 		
-		this.setSprite("PhaseOne", PhaseOne);
-		this.setSprite("PhaseTwo", PhaseTwo);
-		this.setSprite("PhaseThree", PhaseThree);
-		this.setSprite("PhaseFour", PhaseFour);
+		this.setSpriteByKey("PhaseOne", PhaseOne);
+		this.setSpriteByKey("PhaseTwo", PhaseTwo);
+		this.setSpriteByKey("PhaseThree", PhaseThree);
+		this.setSpriteByKey("PhaseFour", PhaseFour);
+		
+		this.setCurrentSprite(this.getSpriteByKey("PhaseOne"));
 	}
+	
 }

@@ -1,6 +1,7 @@
 package fr.exia.showboard;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 /**
  * <h1>The Interface ISquare.</h1>
@@ -17,5 +18,5 @@ public interface ISquare {
      *
      * @return the image
      */
-    Image getImage();
+	 Image getImage();
 }

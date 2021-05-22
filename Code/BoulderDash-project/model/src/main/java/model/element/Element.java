@@ -1,5 +1,6 @@
 package model.element;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -7,11 +8,23 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-public abstract class Element {
+import contract.IElement;
+import fr.exia.showboard.ISquare;
+
+public abstract class Element implements IElement{
 	
 	/** Image sprites array for an element. */
 	private HashMap<String, BufferedImage> sprites;
+	private BufferedImage currentSprite;
 	
+	public BufferedImage getCurrentSprite() {
+		return currentSprite;
+	}
+
+	public void setCurrentSprite(BufferedImage currentSprite) {
+		this.currentSprite = currentSprite;
+	}
+
 	/**Instantiates a new Element.
 	 * 
 	 * 
@@ -20,6 +33,15 @@ public abstract class Element {
 	 */
 	public Element(String imageUrl) {
 		this.sprites = new HashMap<String, BufferedImage>();
+		try {
+			this.loadImages(imageUrl);
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Element() {
+		this.sprites = new HashMap<String, BufferedImage>();
 	}
 	
 	/**Get an Element's image sprite by key
@@ -27,7 +49,7 @@ public abstract class Element {
 	 * @param key
 	 * @return
 	 */
-	public BufferedImage getSprite(String key) {
+	public BufferedImage getSpriteByKey(String key) {
 		return this.sprites.get(key);
 	}
 
@@ -36,7 +58,7 @@ public abstract class Element {
 	 * @param sprite
 	 * 		the new sprite.
 	 */
-	protected void setSprite(String key, BufferedImage sprite) {
+	protected void setSpriteByKey(String key, BufferedImage sprite) {
 		this.sprites.put(key, sprite);
 	}
 	
@@ -48,4 +70,5 @@ public abstract class Element {
 	 */
 	public void loadImages(String imageUrl) throws IOException {
 	}
+	
 }
