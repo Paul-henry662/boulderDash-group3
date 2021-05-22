@@ -20,7 +20,7 @@ public class UnBreakableBrick extends Brick {
 	public void loadImages(String imageUrl) throws IOException {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
 		
-		BufferedImage normal = baseImage.getSubimage(16, 0, 16, 16);
+		BufferedImage normal = baseImage.getSubimage(0, 0, 16, 16);
 		
 		this.setSpriteByKey("normal", normal);
 		this.setCurrentSprite(this.getSpriteByKey("normal"));

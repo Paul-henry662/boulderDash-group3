@@ -55,21 +55,21 @@ public abstract class Mobile extends Element{
 	
 	/**Move a Mobile element on the left*/
 	public void moveLeft() {
-		this.setX(this.getX()-16);
+		this.setX(this.getX()-1);
 	}
 	
 	/**Move a Mobile element on the right*/
 	public void moveRight() {
-		this.setX(this.getX()+16);
+		this.setX(this.getX()+1);
 	}
 	
 	/**Move a Mobile element upward*/
 	public void moveUp() {
-		this.setY(this.getY()-16);
+		this.setY(this.getY()-1);
 	}
 	
 	/**Move a Mobile element downward*/
 	public void moveDown() {
-		this.setY(this.getY()+16);
+		this.setY(this.getY()+1);
 	}
 }

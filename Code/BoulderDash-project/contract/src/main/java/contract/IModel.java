@@ -2,6 +2,7 @@ package contract;
 
 import java.util.Observable;
 
+
 /**
  * The Interface IModel.
  *
@@ -15,6 +16,8 @@ public interface IModel {
 	 * @return the helloworld entity
 	 */
 	IMap getMap();
+	
+	IGround getGround();
 
 	/**
 	 * Load the message.
@@ -23,6 +26,14 @@ public interface IModel {
 	 *          the code
 	 */
 	void loadMap(String code);
+	
+	public void moveRockfordLeft();
+	
+	public void moveRockfordRight();
+	
+	public void moveRockfordUp();
+	
+	public void moveRockfordDown();
 
 	/**
 	 * Gets the observable.

@@ -73,7 +73,22 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-
+		switch(controllerOrder) {
+		case LEFT:
+			this.model.moveRockfordLeft();
+			break;
+		case RIGHT:
+			this.model.moveRockfordRight();
+			break;
+		case UP:
+			this.model.moveRockfordUp();
+			break;
+		case DOWN: 
+			this.model.moveRockfordDown();
+			break;
+		case NOP:
+			break;
+		}
 	}
 
 }
