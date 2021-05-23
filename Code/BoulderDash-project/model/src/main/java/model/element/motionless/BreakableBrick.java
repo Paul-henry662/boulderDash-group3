@@ -1,15 +1,17 @@
 package model.element.motionless;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import contract.Permeability;
+
 public class BreakableBrick extends Brick {
 	public BreakableBrick(String imageUrl) {
 		super(imageUrl);
+		this.permeability = Permeability.PASSING;
 	}
 	
 	public BreakableBrick() {

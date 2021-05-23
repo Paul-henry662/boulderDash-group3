@@ -7,6 +7,11 @@ import contract.IView;
 
 /**
  * The Class Controller.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 public final class Controller implements IController {
 

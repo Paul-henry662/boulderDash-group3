@@ -8,7 +8,6 @@ package contract;
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
  */
-
 public interface IGround {
 	
 	/** Get the height of the ground*/
@@ -24,7 +23,6 @@ public interface IGround {
 	 * @param y
 	 */
 	public void setOnTheGroundXY(IElement brokenBrick, int x, int y);
-	
 	
 	/** Get the element on the ground at position (x,y).
 	 * 

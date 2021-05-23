@@ -3,10 +3,14 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import contract.ControllerOrder;
+import contract.IElement;
 import contract.IModel;
+import contract.Permeability;
 import model.element.mobile.Rockford;
 import model.element.motionless.BreakableBrick;
 import model.element.motionless.BrokenBrick;
+import model.element.motionless.Motionless;
 import model.element.motionless.MotionlessFactory;
 
 /**
@@ -43,6 +47,9 @@ public final class Model extends Observable implements IModel {
 	
 	/** The ground*/
 	private Ground ground;
+	
+	/** The score */
+	private int score;
 
 	/**
 	 * Instantiates a new model.
@@ -197,6 +204,11 @@ public final class Model extends Observable implements IModel {
 		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
 		this.setChanged();
 		this.notifyObservers();
+	}
+
+	@Override
+	public int getScore() {
+		return this.score;
 	}
 	
 }

@@ -5,6 +5,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import contract.IElement;
 
+/**
+ * The Class Element.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ */
 public abstract class Element implements IElement{
 	
 	/** Image sprites array for an element. */

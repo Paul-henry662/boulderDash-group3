@@ -11,15 +11,11 @@ import java.io.IOException;
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
  */
-
 public interface IElement {
 	
 	/** Get the current sprite of an element. */
 	public BufferedImage getCurrentSprite();
 	
-	/** Set the current sprite of an element. */
-	public void setCurrentSprite(BufferedImage currentSprite);
-
 	/**Get an Element's image sprite by key
 	 * 
 	 * @param key
@@ -27,7 +23,6 @@ public interface IElement {
 	 */
 	public BufferedImage getSpriteByKey(String key);
 
-	
 	/**Load images for Element's sprites
 	 * 
 	 * @param imageUrl

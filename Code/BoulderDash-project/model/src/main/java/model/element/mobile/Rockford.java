@@ -6,6 +6,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * The Class Rockford.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ */
 public class Rockford extends Mobile {
 	/** Instantiates a new Rockford
 	 * 
@@ -47,5 +55,25 @@ public class Rockford extends Mobile {
 		this.setSpriteByKey("stepDown", stepDown);
 		
 		this.setCurrentSprite(this.getSpriteByKey("stepRightPhaseOne"));
+	}
+
+	public void moveLeft() {
+		this.setX(this.getX()-1);
+		this.setCurrentSprite(this.getSpriteByKey("stepLeftPhaseOne"));
+	}
+	
+	public void moveRight() {
+		this.setX(this.getX()+1);
+		this.setCurrentSprite(this.getSpriteByKey("stepRightPhaseOne"));
+	}
+	
+	public void moveUp() {
+		this.setY(this.getY()-1);
+		this.setCurrentSprite(this.getSpriteByKey("stepUp"));
+	}
+	
+	public void moveDown() {
+		this.setY(this.getY()+1);
+		this.setCurrentSprite(this.getSpriteByKey("stepDown"));
 	}
 }

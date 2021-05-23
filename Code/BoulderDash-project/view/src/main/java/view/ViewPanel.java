@@ -87,6 +87,10 @@ class ViewPanel extends JPanel implements Observer {
 		}
 	}
 	
+	public void paintScore(Graphics graphics) {
+		graphics.drawString("Score: "+this.getViewFrame().getModel().getScore(), 20, 20);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -107,6 +111,8 @@ class ViewPanel extends JPanel implements Observer {
 		Graphics2D graphics2d = (Graphics2D) graphics;
 		this.paintGround(graphics2d);
 		this.paintMap(graphics2d);
+		graphics2d.setPaint(Color.white);
+		this.paintScore(graphics2d);
 		/*graphics2d.setPaint(Color.white);
 		graphics2d.drawString("Score: ", 50, 50);*/
 	}

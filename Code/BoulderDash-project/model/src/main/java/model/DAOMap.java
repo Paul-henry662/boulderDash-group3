@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * The Class DAOHelloWorld.
+ * The Class DAOMap.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 class DAOMap extends DAOEntity<Map> {
 

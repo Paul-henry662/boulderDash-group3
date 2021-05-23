@@ -21,7 +21,8 @@ public interface IModel {
 	 */
 	IMap getMap();
 	
-	/**Gets the ground*/
+	/**
+	 * Gets the ground*/
 	IGround getGround();
 
 	/**
@@ -32,16 +33,17 @@ public interface IModel {
 	 */
 	void loadMap(String code);
 	
-	/** Move the character left.*/
+	/**
+	 * Moves the character according to a ControllerOrder.
+	 * 
+	 * @param controllerOrder
+	 */
 	public void moveRockfordLeft();
 	
-	/** Move the character right.*/
 	public void moveRockfordRight();
 	
-	/** Move the character up.*/
 	public void moveRockfordUp();
 	
-	/** Move the character down.*/
 	public void moveRockfordDown();
 
 	/**
@@ -50,4 +52,6 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+	
+	public int getScore();
 }

@@ -7,6 +7,15 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * The Class Skull.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ */
+
 public class Skull extends Enemy {
 	public Skull(String imageUrl, int x, int y) {
 		super(imageUrl, x, y);
@@ -32,6 +41,30 @@ public class Skull extends Enemy {
 		this.setSpriteByKey("PhaseFour", PhaseFour);
 		
 		this.setCurrentSprite(this.getSpriteByKey("PhaseOne"));
+	}
+
+	@Override
+	public void moveLeft() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

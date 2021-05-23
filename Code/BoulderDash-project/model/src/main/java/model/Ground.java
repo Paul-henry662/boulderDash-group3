@@ -4,6 +4,15 @@ import contract.IElement;
 import contract.IGround;
 import model.element.motionless.BrokenBrick;
 
+/**
+ * The Class IGround.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ */
+
 public class Ground implements IGround{
 	
 	private int width;

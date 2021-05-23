@@ -2,6 +2,15 @@ package model.element.mobile;
 
 import model.element.Element;
 
+/**
+ * The Class Mobile.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ */
+
 public abstract class Mobile extends Element{
 	
 	/** The x position of a Mobile element*/
@@ -35,7 +44,7 @@ public abstract class Mobile extends Element{
 	 * @param x
 	 * 		the new x position.
 	 */
-	private void setX(int x) {
+	protected void setX(int x) {
 		this.x = x;
 	}
 	
@@ -49,27 +58,19 @@ public abstract class Mobile extends Element{
 	 * @param y
 	 * 		the new y position.
 	 */
-	private void setY(int y) {
+	protected void setY(int y) {
 		this.y = y;
 	}
 	
 	/**Move a Mobile element on the left*/
-	public void moveLeft() {
-		this.setX(this.getX()-1);
-	}
+	public abstract void moveLeft();
 	
 	/**Move a Mobile element on the right*/
-	public void moveRight() {
-		this.setX(this.getX()+1);
-	}
+	public abstract void moveRight();
 	
 	/**Move a Mobile element upward*/
-	public void moveUp() {
-		this.setY(this.getY()-1);
-	}
+	public abstract void moveUp();
 	
 	/**Move a Mobile element downward*/
-	public void moveDown() {
-		this.setY(this.getY()+1);
-	}
+	public abstract void moveDown();
 }

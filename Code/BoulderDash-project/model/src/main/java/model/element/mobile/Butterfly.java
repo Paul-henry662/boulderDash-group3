@@ -7,6 +7,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * The Class Butterfly.
+ *
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ */
 public class Butterfly extends Enemy {
 	public Butterfly(String imageUrl, int x, int y) {
 		super(imageUrl, x, y);
@@ -31,6 +39,30 @@ public class Butterfly extends Enemy {
 		this.setSpriteByKey("flyPhaseFour", flyPhaseFour);
 		
 		this.setCurrentSprite(this.getSpriteByKey("flyPhaseOne"));
+	}
+
+	@Override
+	public void moveLeft() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

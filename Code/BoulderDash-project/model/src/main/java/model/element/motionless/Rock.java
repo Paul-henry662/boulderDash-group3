@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import contract.Permeability;
+
 /**
  * The Class Rock
  * @authors PAD-PCA-NGOUNOU
@@ -15,6 +17,7 @@ public class Rock extends Motionless{
 	
 	public Rock(String imageUrl) {
 		super(imageUrl);
+		this.permeability = Permeability.BLOCKING;
 	}
 	
 	public Rock() {
