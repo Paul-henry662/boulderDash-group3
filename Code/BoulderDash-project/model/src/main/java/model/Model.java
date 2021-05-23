@@ -5,6 +5,7 @@ import java.util.Observable;
 
 import contract.IModel;
 import model.element.mobile.Rockford;
+import model.element.motionless.BreakableBrick;
 import model.element.motionless.BrokenBrick;
 import model.element.motionless.MotionlessFactory;
 
@@ -122,6 +123,8 @@ public final class Model extends Observable implements IModel {
 					this.getMap().setOnTheMapXY(MotionlessFactory.createBreakableBrick(), x, y);
 			}
 		}
+		this.getMap().setOnTheMapXY(MotionlessFactory.createUnBreakableBrick(), 10, 10);
+		this.getMap().setOnTheMapXY(MotionlessFactory.createRock(), 15, 20);
 	}
 	
 	/**Fills the ground*/
@@ -158,51 +161,42 @@ public final class Model extends Observable implements IModel {
 	
 	/** Moves the character to the right on the map */
 	public void moveRockfordRight() {
-		if(this.getRockford().getX()+1 < this.getMap().getWidth()) {
-			this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
-			this.getRockford().moveRight();
-			this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepRightPhaseOne"));
-			this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-			this.setChanged();
-			this.notifyObservers();
-		}
-	
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
+		this.getRockford().moveRight();
+		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepRightPhaseOne"));
+		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	/** Moves the character to the left on the map */
 	public void moveRockfordLeft() {
-		if(this.getRockford().getX()-1 >= 0) {
-			this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
-			this.getRockford().moveLeft();
-			this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepLeftPhaseOne"));
-			this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-			this.setChanged();
-			this.notifyObservers();
-		}
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
+		this.getRockford().moveLeft();
+		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepLeftPhaseOne"));
+		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	/** Moves the character upward on the map */
 	public void moveRockfordUp() {
-		if(this.getRockford().getY()-1 >= 0) {
-			this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
-			this.getRockford().moveUp();
-			this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepUp"));
-			this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-			this.setChanged();
-			this.notifyObservers();
-		}
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
+		this.getRockford().moveUp();
+		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepUp"));
+		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	/** Moves the character downward on the map */
 	public void moveRockfordDown() {
-		if(this.getRockford().getY()+1 < this.getMap().getHeight()) {
-			this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
-			this.getRockford().moveDown();
-			this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepDown"));
-			this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-			this.setChanged();
-			this.notifyObservers();
-		}
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
+		this.getRockford().moveDown();
+		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepDown"));
+		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 }

@@ -1,7 +1,9 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -102,7 +104,10 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {		
-		this.paintGround(graphics);
-		this.paintMap(graphics);
+		Graphics2D graphics2d = (Graphics2D) graphics;
+		this.paintGround(graphics2d);
+		this.paintMap(graphics2d);
+		/*graphics2d.setPaint(Color.white);
+		graphics2d.drawString("Score: ", 50, 50);*/
 	}
 }

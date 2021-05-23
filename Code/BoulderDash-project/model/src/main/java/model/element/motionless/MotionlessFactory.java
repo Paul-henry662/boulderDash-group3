@@ -14,6 +14,9 @@ public class MotionlessFactory {
 	/**The UnBreakableBrick*/
 	private static final Motionless UNBREAKABLE_BRICK = new UnBreakableBrick("sprites/74359.png");
 	
+	/**The Rock*/
+	private static final Motionless ROCK = new Rock("sprites/74359.png");
+	
 	public static Motionless createDiamond() {
 		return DIAMOND;
 	}
@@ -28,5 +31,10 @@ public class MotionlessFactory {
 	
 	public static Motionless createUnBreakableBrick() {
 		return UNBREAKABLE_BRICK;
+	}
+	
+	
+	public static Motionless createRock() {
+		return ROCK;
 	}
 }
