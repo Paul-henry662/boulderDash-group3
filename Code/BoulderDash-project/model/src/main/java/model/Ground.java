@@ -1,7 +1,8 @@
-package model.element.motionless;
+package model;
 
 import contract.IElement;
 import contract.IGround;
+import model.element.motionless.BrokenBrick;
 
 public class Ground implements IGround{
 	

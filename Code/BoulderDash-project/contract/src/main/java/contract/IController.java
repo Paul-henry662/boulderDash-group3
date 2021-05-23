@@ -3,7 +3,10 @@ package contract;
 /**
  * The Interface IController.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 public interface IController {
 

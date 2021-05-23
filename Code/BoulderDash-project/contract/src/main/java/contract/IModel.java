@@ -3,36 +3,45 @@ package contract;
 import java.util.Observable;
 
 
+
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets a map.
 	 *
-	 * @return the helloworld entity
+	 * @return the map entity;
 	 */
 	IMap getMap();
 	
+	/**Gets the ground*/
 	IGround getGround();
 
 	/**
-	 * Load the message.
+	 * Load a map.
 	 *
 	 * @param code
 	 *          the code
 	 */
 	void loadMap(String code);
 	
+	/** Move the character left.*/
 	public void moveRockfordLeft();
 	
+	/** Move the character right.*/
 	public void moveRockfordRight();
 	
+	/** Move the character up.*/
 	public void moveRockfordUp();
 	
+	/** Move the character down.*/
 	public void moveRockfordDown();
 
 	/**

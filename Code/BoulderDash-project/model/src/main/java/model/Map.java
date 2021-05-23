@@ -6,9 +6,12 @@ import entity.Entity;
 import model.element.Element;
 
 /**
- * The Class HelloWorld.
+ * The Class Map.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 public class Map extends Entity implements IMap{
 
@@ -23,29 +26,22 @@ public class Map extends Entity implements IMap{
 
 	/** The key. */
 	private String	key;
-
-	/** The message. */
-	private String	message;
 	
 	/** The elements on the map */
 	private Element[][] onTheMap;
 
-	/**
-	 * Instantiates a new hello world.
-	 *
+	/**Instantiates a new Map 
+	 * 
 	 * @param id
-	 *          the id
 	 * @param key
-	 *          the key
-	 * @param message
-	 *          the message
+	 * @param width
+	 * @param height
 	 */
-	public Map(final int id, final String key, final int width, final int height, final String message) {
+	public Map(final int id, final String key, final int width, final int height) {
 		this.setId(id);
 		this.setKey(key);
 		this.setWidth(width);
 		this.setHeight(height);
-		this.setMessage(message);
 		this.onTheMap = new Element[width][height];
 	}
 
@@ -69,7 +65,7 @@ public class Map extends Entity implements IMap{
 	 * Instantiates a new hello world.
 	 */
 	public Map() {
-		this(0, "", 500, 500, "");
+		this(0, "", 50, 50);
 	}
 
 	/**
@@ -77,6 +73,7 @@ public class Map extends Entity implements IMap{
 	 *
 	 * @return the id
 	 */
+	@Override
 	public int getId() {
 		return this.id;
 	}
@@ -87,6 +84,7 @@ public class Map extends Entity implements IMap{
 	 * @param id
 	 *          the new id
 	 */
+	@Override
 	public void setId(final int id) {
 		this.id = id;
 	}
@@ -96,6 +94,7 @@ public class Map extends Entity implements IMap{
 	 *
 	 * @return the key
 	 */
+	@Override
 	public String getKey() {
 		return this.key;
 	}
@@ -110,25 +109,7 @@ public class Map extends Entity implements IMap{
 		this.key = key;
 	}
 
-	/**
-	 * Gets the message.
-	 *
-	 * @return the message
-	 */
-	public String getMessage() {
-		return this.message;
-	}
-
-	/**
-	 * Sets the message.
-	 *
-	 * @param message
-	 *          the new message
-	 */
-	public void setMessage(final String message) {
-		this.message = message;
-	}
-	
+	@Override
 	public Element getOnTheMapXY(int x, int y) {
 		return this.onTheMap[x][y];
 	}

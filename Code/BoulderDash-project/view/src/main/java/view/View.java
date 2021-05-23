@@ -10,12 +10,15 @@ import contract.IModel;
 import contract.IView;
 
 /**
- * The Class View.
+ * The class View.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
+
 public final class View implements IView, Runnable {
-	
 	
 	/**Size of a square*/
 	static final int SQUARE_SIZE = 16;

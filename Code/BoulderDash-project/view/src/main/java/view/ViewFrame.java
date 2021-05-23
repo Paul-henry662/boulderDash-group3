@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -13,10 +12,14 @@ import contract.IController;
 import contract.IModel;
 
 /**
- * The Class ViewFrame.
+ * The class ViewFrame.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
+
 class ViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
@@ -131,8 +134,9 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
-		this.setSize(this.getModel().getMap().getWidth()*View.SQUARE_SIZE, this.getModel().getMap().getHeight()*View.SQUARE_SIZE);
+		this.add(new ViewPanel(this));
+		this.pack();
+		//this.setSize(this.getModel().getMap().getWidth()*View.SQUARE_SIZE + 30, this.getModel().getMap().getHeight()*View.SQUARE_SIZE + 100);
 		this.setLocationRelativeTo(null);
 	}
 

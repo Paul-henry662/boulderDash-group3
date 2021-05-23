@@ -1,15 +1,9 @@
 package model.element;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-
-import javax.imageio.ImageIO;
-
 import contract.IElement;
-import fr.exia.showboard.ISquare;
 
 public abstract class Element implements IElement{
 	

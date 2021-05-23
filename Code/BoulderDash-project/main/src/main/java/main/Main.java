@@ -1,34 +1,24 @@
 /**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
+ * 
  * @version 1.0
  */
 package main;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Label;
-import java.awt.Rectangle;
-import java.io.IOException;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import contract.ControllerOrder;
 import controller.Controller;
-import fr.exia.showboard.BoardFrame;
 import model.Model;
-import model.element.mobile.Rockford;
-import model.element.motionless.Brick;
-import model.element.motionless.BrokenBrick;
 import view.View;
 
 /**
  * The Class Main.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 public abstract class Main {
 

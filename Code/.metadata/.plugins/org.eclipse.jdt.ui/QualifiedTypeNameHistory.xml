@@ -14,6 +14,6 @@
     <fullyQualifiedTypeName name="fr.exia.showboard.BoardFrame"/>
     <fullyQualifiedTypeName name="fr.exia.showboard.ISquare"/>
     <fullyQualifiedTypeName name="java.awt.Image"/>
-    <fullyQualifiedTypeName name="java.awt.Dimension"/>
     <fullyQualifiedTypeName name="java.awt.Rectangle"/>
+    <fullyQualifiedTypeName name="java.awt.Dimension"/>
 </qualifiedTypeNameHistroy>

@@ -1,6 +1,5 @@
 package model.element.mobile;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +16,7 @@ public class Rockford extends Mobile {
 		super(imageUrl, x, y);
 	}
 	
+	/** Instantiates a new Rockford.*/
 	public Rockford() {
 		super();
 	}

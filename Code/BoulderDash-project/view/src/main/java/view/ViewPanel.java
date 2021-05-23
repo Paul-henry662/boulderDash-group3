@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
@@ -7,16 +8,26 @@ import java.util.Observer;
 import javax.swing.JPanel;
 
 /**
- * The Class ViewPanel.
+ * The class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @authors Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  */
 class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
+	
 	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -998294702363713521L;
+	private static final long			serialVersionUID	= -998294702363713521L;
+	
+	/** The width of the panel */
+	private int width;
+	
+	/** The height of the panel */
+	private int height;
 
 	/**
 	 * Instantiates a new view panel.
@@ -26,6 +37,9 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
+		this.width = this.getViewFrame().getModel().getMap().getWidth()*View.SQUARE_SIZE;
+		this.height = this.getViewFrame().getModel().getMap().getHeight()*View.SQUARE_SIZE;
+		this.setPreferredSize(new Dimension(this.width, this.height));
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -47,7 +61,30 @@ class ViewPanel extends JPanel implements Observer {
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;
 	}
-
+	
+	/** Paints the ground behind the map 
+	 * 
+	 * @param graphics
+	 */
+	public void paintGround(Graphics graphics) {
+		for(int y=0; y<this.getViewFrame().getModel().getGround().getHeight(); y++) {
+			for(int x=0; x<this.getViewFrame().getModel().getGround().getWidth(); x++)
+				graphics.drawImage(this.getViewFrame().getModel().getGround().getOnTheGroundXY(x, y).getCurrentSprite(), x*View.SQUARE_SIZE, y*View.SQUARE_SIZE, null);
+		}
+	}
+	
+	/** Paints the map 
+	 * 
+	 * @param graphics
+	 */
+	public void paintMap(Graphics graphics) {
+		for(int y=0; y<this.getViewFrame().getModel().getMap().getHeight(); y++) {
+			for(int x=0; x<this.getViewFrame().getModel().getMap().getWidth(); x++)
+				if(this.getViewFrame().getModel().getMap().getOnTheMapXY(x, y) != null)
+					graphics.drawImage(this.getViewFrame().getModel().getMap().getOnTheMapXY(x, y).getCurrentSprite(), x*View.SQUARE_SIZE, y*View.SQUARE_SIZE, null);
+		}
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -56,6 +93,7 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
+	
 
 	/*
 	 * (non-Javadoc)
@@ -63,16 +101,8 @@ class ViewPanel extends JPanel implements Observer {
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
 	@Override
-	protected void paintComponent(final Graphics graphics) {
-		for(int y=0; y<this.getViewFrame().getModel().getGround().getHeight(); y++) {
-			for(int x=0; x<this.getViewFrame().getModel().getGround().getWidth(); x++)
-				graphics.drawImage(this.getViewFrame().getModel().getGround().getOnTheGroundXY(x, y).getCurrentSprite(), x*View.SQUARE_SIZE, y*View.SQUARE_SIZE, null);
-		}
-		
-		for(int y=0; y<this.getViewFrame().getModel().getMap().getHeight(); y++) {
-			for(int x=0; x<this.getViewFrame().getModel().getMap().getWidth(); x++)
-				if(this.getViewFrame().getModel().getMap().getOnTheMapXY(x, y) != null)
-					graphics.drawImage(this.getViewFrame().getModel().getMap().getOnTheMapXY(x, y).getCurrentSprite(), x*View.SQUARE_SIZE, y*View.SQUARE_SIZE, null);
-		}
+	protected void paintComponent(final Graphics graphics) {		
+		this.paintGround(graphics);
+		this.paintMap(graphics);
 	}
 }
