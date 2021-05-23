@@ -1,5 +1,6 @@
 package model.element.mobile;
 
+import contract.IMobile;
 import model.element.Element;
 
 /**
@@ -11,7 +12,7 @@ import model.element.Element;
  * 			Gregori Tema
  */
 
-public abstract class Mobile extends Element{
+public abstract class Mobile extends Element implements IMobile{
 	
 	/** The x position of a Mobile element*/
 	private int x;

@@ -54,4 +54,8 @@ public interface IModel {
 	Observable getObservable();
 	
 	public int getScore();
+	
+	public IElement getRockford();
+	
+	public void doNothing();
 }

@@ -92,8 +92,13 @@ public final class Controller implements IController {
 			this.model.moveRockfordDown();
 			break;
 		case NOP:
+			this.model.doNothing();
 			break;
 		}
 	}
+	
+	/*public boolean rockfordInLeftBound() {
+		if(this.model.getRockford().ge)
+	}*/
 
 }

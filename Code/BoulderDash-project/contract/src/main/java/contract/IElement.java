@@ -30,4 +30,6 @@ public interface IElement {
 	 * @throws IOException 
 	 */
 	public void loadImages(String imageUrl) throws IOException;
+	
+	public void setCurrentSprite(BufferedImage currentSprite);
 }

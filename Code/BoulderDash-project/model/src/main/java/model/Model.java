@@ -5,6 +5,9 @@ import java.util.Observable;
 
 import contract.ControllerOrder;
 import contract.IElement;
+import contract.IGround;
+import contract.IMap;
+import contract.IMobile;
 import contract.IModel;
 import contract.Permeability;
 import model.element.mobile.Rockford;
@@ -40,13 +43,13 @@ public final class Model extends Observable implements IModel {
 	private static final int ROCKFORD_START_Y = 0;
 
 	/** The map. */
-	private Map map;
+	private IMap map;
 	
 	/**The character */
-	private Rockford rockford;
+	private IMobile rockford;
 	
 	/** The ground*/
-	private Ground ground;
+	private IGround ground;
 	
 	/** The score */
 	private int score;
@@ -72,7 +75,7 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMap()
 	 */
-	public Map getMap() {
+	public IMap getMap() {
 		return this.map;
 	}
 
@@ -144,7 +147,7 @@ public final class Model extends Observable implements IModel {
 	}
 	
 	/** Gets the character */
-	public Rockford getRockford() {
+	public IMobile getRockford() {
 		return rockford;
 	}
 
@@ -152,12 +155,12 @@ public final class Model extends Observable implements IModel {
 	 * 
 	 * @param rockford
 	 */
-	private void setRockford(Rockford rockford) {
+	private void setRockford(IMobile rockford) {
 		this.rockford = rockford;
 	}
 	
 	/** Gets the ground*/
-	public Ground getGround() {
+	public IGround getGround() {
 		return ground;
 	}
 	
@@ -209,6 +212,10 @@ public final class Model extends Observable implements IModel {
 	@Override
 	public int getScore() {
 		return this.score;
+	}
+	
+	public void doNothing() {
+		
 	}
 	
 }
