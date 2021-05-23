@@ -1,5 +1,6 @@
 package model.element.motionless;
 
+import contract.IMotionless;
 import contract.Permeability;
 import model.element.Element;
 
@@ -11,7 +12,7 @@ import model.element.Element;
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
  */
-public abstract class Motionless extends Element {
+public abstract class Motionless extends Element implements IMotionless{
 	
 	protected Permeability permeability;
 	

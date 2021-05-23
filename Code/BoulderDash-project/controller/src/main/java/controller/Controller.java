@@ -3,7 +3,9 @@ package controller;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
+import contract.IMotionless;
 import contract.IView;
+import contract.Permeability;
 
 /**
  * The Class Controller.
@@ -80,16 +82,61 @@ public final class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch(controllerOrder) {
 		case LEFT:
-			this.model.moveRockfordLeft();
+			if(this.rockfordInLeftBound())
+				switch(this.getNextElementPermeability(controllerOrder)) {
+				case BLOCKING:
+					this.model.doNothing();
+					break;
+				case PASSING:
+					this.model.moveRockfordLeft();
+					break;
+				case PICKABLE:
+					this.pick();
+					break;
+				}
 			break;
 		case RIGHT:
-			this.model.moveRockfordRight();
+			if(this.rockfordInRightBound())
+				switch(this.getNextElementPermeability(controllerOrder)) {
+				case BLOCKING:
+					this.model.doNothing();
+					break;
+				case PASSING:
+					this.model.moveRockfordRight();
+					break;
+				case PICKABLE:
+					this.pick();
+					break;
+				}
 			break;
+			
 		case UP:
-			this.model.moveRockfordUp();
+			if(this.rockfordInUpBound())
+				switch(this.getNextElementPermeability(controllerOrder)) {
+				case BLOCKING:
+					this.model.doNothing();
+					break;
+				case PASSING:
+					this.model.moveRockfordUp();
+					break;
+				case PICKABLE:
+					this.pick();
+					break;
+				}
 			break;
 		case DOWN: 
-			this.model.moveRockfordDown();
+			if(this.rockfordInDownBound())
+				switch(this.getNextElementPermeability(controllerOrder)) {
+				case BLOCKING:
+					this.model.doNothing();
+					break;
+				case PASSING:
+					this.model.moveRockfordDown();
+					break;
+				case PICKABLE:
+					this.pick();
+					break;
+				}
 			break;
 		case NOP:
 			this.model.doNothing();
@@ -97,8 +144,67 @@ public final class Controller implements IController {
 		}
 	}
 	
-	/*public boolean rockfordInLeftBound() {
-		if(this.model.getRockford().ge)
+	private boolean rockfordInLeftBound() {
+		if(this.model.getRockford().getX()-1 >= 0)
+			return true;
+		return false;
+	}
+	
+	private boolean rockfordInRightBound() {
+		if(this.model.getRockford().getX()+1 < this.model.getMap().getWidth())
+			return true;
+		return false;
+	}
+	
+	private boolean rockfordInUpBound() {
+		if(this.model.getRockford().getY()-1 >= 0)
+			return true;
+		return false;
+	}
+	
+	private boolean rockfordInDownBound() {
+		if(this.model.getRockford().getY()+1 < this.model.getMap().getHeight())
+			return true;
+		return false;
+	}
+	
+	/*private Permeability getNextElementPermeability() {
+		IMotionless nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY());
+		
+		if(nextElement == null)
+			return Permeability.PASSING;
+		return nextElement.getPermeability();
 	}*/
+	
+	private void pick() {
+		this.model.setScore(this.model.getScore()+1);
+	}
+	
+	private Permeability getNextElementPermeability(ControllerOrder controllerOrder) {
+		IMotionless nextElement = null;
+		
+		switch(controllerOrder) {
+		case LEFT:
+			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX()-1, this.model.getRockford().getY());
+			break;
+		case RIGHT:
+			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX()+1, this.model.getRockford().getY());
+			break;
+		case UP:
+			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY()-1);
+			break;
+		case DOWN:
+			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY()+1);
+			break;
+		case NOP:
+			break;
+		default:
+			break;	
+		}
+		
+		if(nextElement == null)
+			return Permeability.PASSING;
+		return nextElement.getPermeability();
+	}
 
 }

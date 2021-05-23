@@ -173,7 +173,6 @@ public final class Model extends Observable implements IModel {
 	public void moveRockfordRight() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveRight();
-		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepRightPhaseOne"));
 		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
 		this.setChanged();
 		this.notifyObservers();
@@ -183,7 +182,6 @@ public final class Model extends Observable implements IModel {
 	public void moveRockfordLeft() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveLeft();
-		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepLeftPhaseOne"));
 		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
 		this.setChanged();
 		this.notifyObservers();
@@ -193,7 +191,6 @@ public final class Model extends Observable implements IModel {
 	public void moveRockfordUp() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveUp();
-		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepUp"));
 		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
 		this.setChanged();
 		this.notifyObservers();
@@ -203,7 +200,6 @@ public final class Model extends Observable implements IModel {
 	public void moveRockfordDown() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveDown();
-		this.getRockford().setCurrentSprite(this.getRockford().getSpriteByKey("stepDown"));
 		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
 		this.setChanged();
 		this.notifyObservers();
@@ -216,6 +212,11 @@ public final class Model extends Observable implements IModel {
 	
 	public void doNothing() {
 		
+	}
+
+	@Override
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
 }

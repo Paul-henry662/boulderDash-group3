@@ -55,7 +55,9 @@ public interface IModel {
 	
 	public int getScore();
 	
-	public IElement getRockford();
+	public void setScore(int score);
+	
+	public IMobile getRockford();
 	
 	public void doNothing();
 }

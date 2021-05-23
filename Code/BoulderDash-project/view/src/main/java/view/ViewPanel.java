@@ -68,7 +68,7 @@ class ViewPanel extends JPanel implements Observer {
 	 * 
 	 * @param graphics
 	 */
-	public void paintGround(Graphics graphics) {
+	private void paintGround(Graphics graphics) {
 		for(int y=0; y<this.getViewFrame().getModel().getGround().getHeight(); y++) {
 			for(int x=0; x<this.getViewFrame().getModel().getGround().getWidth(); x++)
 				graphics.drawImage(this.getViewFrame().getModel().getGround().getOnTheGroundXY(x, y).getCurrentSprite(), x*View.SQUARE_SIZE, y*View.SQUARE_SIZE, null);
@@ -79,7 +79,7 @@ class ViewPanel extends JPanel implements Observer {
 	 * 
 	 * @param graphics
 	 */
-	public void paintMap(Graphics graphics) {
+	private void paintMap(Graphics graphics) {
 		for(int y=0; y<this.getViewFrame().getModel().getMap().getHeight(); y++) {
 			for(int x=0; x<this.getViewFrame().getModel().getMap().getWidth(); x++)
 				if(this.getViewFrame().getModel().getMap().getOnTheMapXY(x, y) != null)
@@ -87,7 +87,7 @@ class ViewPanel extends JPanel implements Observer {
 		}
 	}
 	
-	public void paintScore(Graphics graphics) {
+	private void paintScore(Graphics graphics) {
 		graphics.drawString("Score: "+this.getViewFrame().getModel().getScore(), 20, 20);
 	}
 	

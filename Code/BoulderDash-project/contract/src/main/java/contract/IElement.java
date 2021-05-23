@@ -15,21 +15,4 @@ public interface IElement {
 	
 	/** Get the current sprite of an element. */
 	public BufferedImage getCurrentSprite();
-	
-	/**Get an Element's image sprite by key
-	 * 
-	 * @param key
-	 * @return the sprite associated with the key
-	 */
-	public BufferedImage getSpriteByKey(String key);
-
-	/**Load images for Element's sprites
-	 * 
-	 * @param imageUrl
-	 * 			the url of the base image.
-	 * @throws IOException 
-	 */
-	public void loadImages(String imageUrl) throws IOException;
-	
-	public void setCurrentSprite(BufferedImage currentSprite);
 }
