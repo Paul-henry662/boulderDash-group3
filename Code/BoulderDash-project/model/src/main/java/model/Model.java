@@ -135,6 +135,7 @@ public final class Model extends Observable implements IModel {
 		}
 		this.getMap().setOnTheMapXY(MotionlessFactory.createUnBreakableBrick(), 10, 10);
 		this.getMap().setOnTheMapXY(MotionlessFactory.createRock(), 15, 20);
+		this.getMap().setOnTheMapXY(MotionlessFactory.createDiamond(), 20, 20);
 	}
 	
 	/**Fills the ground*/

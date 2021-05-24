@@ -92,6 +92,7 @@ public final class Controller implements IController {
 					break;
 				case PICKABLE:
 					this.pick();
+					this.model.moveRockfordLeft();
 					break;
 				}
 			break;
@@ -106,6 +107,7 @@ public final class Controller implements IController {
 					break;
 				case PICKABLE:
 					this.pick();
+					this.model.moveRockfordRight();
 					break;
 				}
 			break;
@@ -121,6 +123,7 @@ public final class Controller implements IController {
 					break;
 				case PICKABLE:
 					this.pick();
+					this.model.moveRockfordUp();
 					break;
 				}
 			break;
@@ -135,6 +138,7 @@ public final class Controller implements IController {
 					break;
 				case PICKABLE:
 					this.pick();
+					this.model.moveRockfordDown();
 					break;
 				}
 			break;
