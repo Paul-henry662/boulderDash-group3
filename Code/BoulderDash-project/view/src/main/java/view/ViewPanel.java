@@ -109,13 +109,11 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {		
 		Graphics2D graphics2d = (Graphics2D) graphics;
-		graphics2d.scale(2, 2);
-		graphics2d.translate(-2, -2);
+		/*graphics2d.scale(2, 2);
+		graphics2d.translate(-2, -2);*/
 		this.paintGround(graphics2d);
 		this.paintMap(graphics2d);
 		graphics2d.setPaint(Color.white);
 		this.paintScore(graphics2d);
-		/*graphics2d.setPaint(Color.white);
-		graphics2d.drawString("Score: ", 50, 50);*/
 	}
 }
