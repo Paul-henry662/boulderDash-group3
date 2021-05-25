@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Observable;
 
@@ -37,10 +38,10 @@ public final class Model extends Observable implements IModel {
 	private static final int MAP_HEIGHT = 50;
 	
 	/**Start position of the character*/
-	private static final int ROCKFORD_START_X = 0;
+	private static final int ROCKFORD_START_X = 4;
 	
 	/**Start position of the character*/
-	private static final int ROCKFORD_START_Y = 0;
+	private static final int ROCKFORD_START_Y = 5;
 
 	/** The map. */
 	private IMap map;
@@ -58,10 +59,16 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.map = new Map(1,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
-		this.setGround(new Ground(MAP_WIDTH, MAP_HEIGHT));
+		//this.map = new Map(1,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
+		try {
+			this.map = new Map(1, MAP_KEY, "txt/Level1.txt");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		this.setGround(new Ground(this.getMap().getWidth(), this.getMap().getHeight()));
 		this.setRockford(new Rockford("sprites/74336.png", ROCKFORD_START_X, ROCKFORD_START_Y));
-		this.fillMap();
+		//this.fillMap();
 		this.fillGround();
 	}
 

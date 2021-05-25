@@ -1,9 +1,15 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import contract.IElement;
 import contract.IMap;
 import entity.Entity;
 import model.element.Element;
+import model.element.motionless.MotionlessFactory;
 
 /**
  * The Class Map.
@@ -28,7 +34,7 @@ public class Map extends Entity implements IMap{
 	private String	key;
 	
 	/** The elements on the map */
-	private Element[][] onTheMap;
+	private IElement[][] onTheMap;
 
 	/**Instantiates a new Map 
 	 * 
@@ -43,6 +49,12 @@ public class Map extends Entity implements IMap{
 		this.setWidth(width);
 		this.setHeight(height);
 		this.onTheMap = new Element[width][height];
+	}
+	
+	public Map(final int id, final String key, String fileUrl) throws IOException {
+		this.setId(id);
+		this.setKey(key);
+		this.generateMapFromFile(fileUrl);
 	}
 
 	public int getWidth() {
@@ -110,13 +122,36 @@ public class Map extends Entity implements IMap{
 	}
 
 	@Override
-	public Element getOnTheMapXY(int x, int y) {
+	public IElement getOnTheMapXY(int x, int y) {
 		return this.onTheMap[x][y];
 	}
 	
 	@Override
 	public void setOnTheMapXY(IElement element, int x, int y) {
 		this.onTheMap[x][y] = (Element) element;
+	}
+	
+	public void generateMapFromFile(String fileUrl) throws IOException {
+		FileReader fr = new FileReader(fileUrl);
+		BufferedReader br = new BufferedReader(fr);
+		int y = 0;
+		
+		String line = br.readLine();
+		this.setWidth(Integer.parseInt(line));
+		line = br.readLine();
+		this.setHeight(Integer.parseInt(line));
+		
+		this.onTheMap = new IElement[this.getWidth()][this.getHeight()];
+		line = br.readLine();
+        while (line != null && y < this.getWidth()) {
+            for (int x = 0; x < line.toCharArray().length; x++) {
+            	this.setOnTheMapXY(MotionlessFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
+            }
+            line = br.readLine();
+            y++;
+        }
+        br.close();
+       
 	}
 
 

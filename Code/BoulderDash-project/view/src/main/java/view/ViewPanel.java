@@ -91,6 +91,12 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.drawString("Score: "+this.getViewFrame().getModel().getScore(), 20, 20);
 	}
 	
+	private void paintRockford(Graphics graphics) {
+		int x = this.getViewFrame().getModel().getRockford().getX()*View.SQUARE_SIZE;
+		int y = this.getViewFrame().getModel().getRockford().getY()*View.SQUARE_SIZE;
+		graphics.drawImage(this.getViewFrame().getModel().getRockford().getCurrentSprite(), x, y, null);
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 *
@@ -109,10 +115,10 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {		
 		Graphics2D graphics2d = (Graphics2D) graphics;
-		/*graphics2d.scale(2, 2);
-		graphics2d.translate(-2, -2);*/
+		graphics2d.scale(2,2);
 		this.paintGround(graphics2d);
 		this.paintMap(graphics2d);
+		this.paintRockford(graphics2d);
 		graphics2d.setPaint(Color.white);
 		this.paintScore(graphics2d);
 	}

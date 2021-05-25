@@ -6,7 +6,7 @@ public class MotionlessFactory {
 	private static final Motionless DIAMOND = new Diamond("sprites/74359.png");
 	
 	/**The BrokenBrick*/
-	private static final Motionless BROCKEN_BRICK = new BrokenBrick("sprites/74359.png");
+	private static final Motionless BROKEN_BRICK = new BrokenBrick("sprites/74359.png");
 	
 	/**The BreakableBrick*/
 	private static final Motionless BREAKABLE_BRICK = new BreakableBrick("sprites/74359.png");
@@ -22,7 +22,7 @@ public class MotionlessFactory {
 	}
 	
 	public static Motionless createBrokenBrick() {
-		return BROCKEN_BRICK;
+		return BROKEN_BRICK;
 	}
 	
 	public static Motionless createBreakableBrick() {
@@ -36,5 +36,30 @@ public class MotionlessFactory {
 	
 	public static Motionless createRock() {
 		return ROCK;
+	}
+	
+	public static Motionless getFromFileSymbol(char character) {
+		
+		Motionless elmnt = null;
+		switch(character) {
+		case 'B':
+			elmnt = BREAKABLE_BRICK;
+			break;
+		case 'b':
+			elmnt = BROKEN_BRICK;
+			break;
+		case 'U':
+			elmnt = UNBREAKABLE_BRICK;
+			break;
+		case 'D':
+			elmnt = DIAMOND;
+			break;
+		case 'R':
+			elmnt = ROCK;
+			break;
+		default:
+			break;	
+		}
+		return elmnt;
 	}
 }
