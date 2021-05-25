@@ -36,7 +36,7 @@ public final class View implements IView, Runnable {
 	 */
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
-		this.viewSound = new ViewSound("C:\\Users\\ALPHA-Z\\git\\boulderDash-group3\\Code\\BoulderDash-project\\main\\06-Υ.-2-DIAMANTS.wav");
+		this.viewSound = new ViewSound("C:\\Users\\ALPHA-Z\\git\\boulderDash-group3\\Code\\BoulderDash-project\\main\\Songs\\boulderDashTheme.wav");
 		this.viewSound.start();
 		SwingUtilities.invokeLater(this);
 	}
