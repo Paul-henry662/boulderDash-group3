@@ -1,16 +1,9 @@
-/**
- * @authors Paul-henry NGANKAM
- * 			Georges Arthur Balog
- * 			Prince Jordan Tankwa
- * 			Gregori Tema
- * 
- * @version 1.0
- */
 package main;
 
 import controller.Controller;
 import model.Model;
 import view.View;
+import view.ViewSound;
 
 /**
  * The Class Main.
@@ -21,6 +14,8 @@ import view.View;
  * 			Gregori Tema
  */
 public abstract class Main {
+	
+	
 
     /**
      * The main method.
@@ -33,8 +28,7 @@ public abstract class Main {
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
         view.setController(controller);
-        controller.control();
-
-    }
-
-}
+        controller.control();        
+      
+  }  
+}   
