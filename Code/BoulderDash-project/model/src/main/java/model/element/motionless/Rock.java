@@ -17,7 +17,7 @@ public class Rock extends Motionless{
 	
 	public Rock(String imageUrl) {
 		super(imageUrl);
-		this.permeability = Permeability.BLOCKING;
+		this.permeability = Permeability.MOVABLE;
 	}
 	
 	public Rock() {

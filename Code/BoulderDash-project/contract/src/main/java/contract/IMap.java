@@ -46,7 +46,7 @@ public interface IMap {
 	 * @return the message
 	 */
 	
-	public IElement getOnTheMapXY(int x, int y);
+	public IMotionless getOnTheMapXY(int x, int y);
 	
 	/** Set an element on the map at position (x, y)
 	 * 
@@ -54,5 +54,5 @@ public interface IMap {
 	 * @param x
 	 * @param y
 	 */
-	public void setOnTheMapXY(IElement element, int x, int y);
+	public void setOnTheMapXY(IMotionless element, int x, int y);
 }

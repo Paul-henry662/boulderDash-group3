@@ -27,8 +27,8 @@ public abstract class Main {
         final Model model = new Model();
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
-        view.setController(controller);
-        controller.control();        
+        view.setController(controller);   
+        controller.play();
       
   }  
 }   

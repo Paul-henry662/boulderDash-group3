@@ -1,5 +1,5 @@
 package contract;
 
-public interface IMotionless {
+public interface IMotionless extends IElement{
 	public Permeability getPermeability();
 }

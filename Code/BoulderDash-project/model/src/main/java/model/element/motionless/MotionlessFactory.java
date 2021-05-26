@@ -46,7 +46,6 @@ public class MotionlessFactory {
 			elmnt = BREAKABLE_BRICK;
 			break;
 		case 'b':
-			elmnt = BROKEN_BRICK;
 			break;
 		case 'U':
 			elmnt = UNBREAKABLE_BRICK;

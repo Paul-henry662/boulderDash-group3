@@ -60,4 +60,8 @@ public interface IModel {
 	public IMobile getRockford();
 	
 	public void doNothing();
+	
+	public void makeRockfordMoveElementRightXY(int x, int y);
+
+	void notifyModelHasChanged();
 }

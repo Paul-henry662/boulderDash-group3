@@ -36,9 +36,8 @@ public final class View implements IView, Runnable {
 	 */
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
-		this.viewSound = new ViewSound("C:\\Users\\ALPHA-Z\\git\\boulderDash-group3\\Code\\BoulderDash-project\\main\\Songs\\boulderDashTheme.wav");
+		this.viewSound = new ViewSound("Songs/boulderDashTheme.wav");
 		this.viewSound.start();
-		SwingUtilities.invokeLater(this);
 	}
 
 	/**
@@ -89,5 +88,9 @@ public final class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+	
+	public void begin() {
+		new Thread(this).start();
 	}
 }

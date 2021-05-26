@@ -10,6 +10,7 @@ import contract.IGround;
 import contract.IMap;
 import contract.IMobile;
 import contract.IModel;
+import contract.IMotionless;
 import contract.Permeability;
 import model.element.mobile.Rockford;
 import model.element.motionless.BreakableBrick;
@@ -135,7 +136,7 @@ public final class Model extends Observable implements IModel {
 		for(int y=0;y<this.getMap().getHeight();y+=1) {
 			for(int x=0;x<this.getMap().getWidth();x+=1) {
 				if(x==this.getRockford().getX() && y==this.getRockford().getY())
-					this.getMap().setOnTheMapXY(rockford, x, y);
+					this.getMap().setOnTheMapXY(null, x, y);
 				else
 					this.getMap().setOnTheMapXY(MotionlessFactory.createBreakableBrick(), x, y);
 			}
@@ -181,36 +182,35 @@ public final class Model extends Observable implements IModel {
 	public void moveRockfordRight() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveRight();
-		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-		this.setChanged();
-		this.notifyObservers();
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 	}
 	
 	/** Moves the character to the left on the map */
 	public void moveRockfordLeft() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveLeft();
-		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-		this.setChanged();
-		this.notifyObservers();
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 	}
 	
 	/** Moves the character upward on the map */
 	public void moveRockfordUp() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveUp();
-		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-		this.setChanged();
-		this.notifyObservers();
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 	}
 	
 	/** Moves the character downward on the map */
 	public void moveRockfordDown() {
 		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
 		this.getRockford().moveDown();
-		this.getMap().setOnTheMapXY(rockford, this.getRockford().getX(), this.getRockford().getY());
-		this.setChanged();
-		this.notifyObservers();
+		this.getMap().setOnTheMapXY(null, this.getRockford().getX(), this.getRockford().getY());
+	}
+	
+	public void makeRockfordMoveElementRightXY(int x, int y) {
+		IMotionless elmnt = this.getMap().getOnTheMapXY(x, y);
+		this.getMap().setOnTheMapXY(null, x, y);
+		this.getMap().setOnTheMapXY(null, x+1, y);
+		this.getRockford().moveRight();
 	}
 
 	@Override
@@ -225,6 +225,11 @@ public final class Model extends Observable implements IModel {
 	@Override
 	public void setScore(int score) {
 		this.score = score;
+	}
+	
+	public void notifyModelHasChanged() {
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 }

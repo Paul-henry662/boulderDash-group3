@@ -2,6 +2,7 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
+import contract.IElement;
 import contract.IModel;
 import contract.IMotionless;
 import contract.IView;
@@ -15,7 +16,7 @@ import contract.Permeability;
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
  */
-public final class Controller implements IController {
+public final class Controller extends Thread implements IController {
 
 	/** The view. */
 	private IView		view;
@@ -46,6 +47,11 @@ public final class Controller implements IController {
 	 */
 	public void control() {
 		this.view.printMessage("Pick all the diamonds!");
+	}
+	
+	public void play() {
+		this.view.begin();
+		this.start();
 	}
 
 	/**
@@ -146,6 +152,7 @@ public final class Controller implements IController {
 			this.model.doNothing();
 			break;
 		}
+		this.model.notifyModelHasChanged();
 	}
 	
 	private boolean rockfordInLeftBound() {
@@ -189,16 +196,16 @@ public final class Controller implements IController {
 		
 		switch(controllerOrder) {
 		case LEFT:
-			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX()-1, this.model.getRockford().getY());
+			nextElement = this.model.getMap().getOnTheMapXY(this.model.getRockford().getX()-1, this.model.getRockford().getY());
 			break;
 		case RIGHT:
-			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX()+1, this.model.getRockford().getY());
+			nextElement = this.model.getMap().getOnTheMapXY(this.model.getRockford().getX()+1, this.model.getRockford().getY());
 			break;
 		case UP:
-			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY()-1);
+			nextElement = this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY()-1);
 			break;
 		case DOWN:
-			nextElement = (IMotionless) this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY()+1);
+			nextElement = this.model.getMap().getOnTheMapXY(this.model.getRockford().getX(), this.model.getRockford().getY()+1);
 			break;
 		case NOP:
 			break;
@@ -210,5 +217,78 @@ public final class Controller implements IController {
 			return Permeability.PASSING;
 		return nextElement.getPermeability();
 	}
+	
+	public void setGravity() {
+	IMotionless elmnt;
+	
+	while(true) {
+		for(int y=0; y<this.model.getMap().getHeight()-1; y++) {
+			for(int x=0; x<this.model.getMap().getWidth()-1; x++) {
+				elmnt = this.model.getMap().getOnTheMapXY(x, y);
+
+				if(elmnt==null) {
+					continue;
+				}
+				else if(elmnt.getPermeability() == Permeability.MOVABLE ||elmnt.getPermeability() == Permeability.PICKABLE) {
+					int finalY = this.calculateFinalY(x, y);
+					this.makeElementXYFallOnTheMap(x, y, finalY);
+				}
+			}
+		}
+	}
+}
+
+@Override
+public void run() {
+	this.setGravity();
+}
+
+
+private boolean rockfordCarriesElementXY(int x, int y) {
+	if(x==this.model.getRockford().getX() && this.model.getRockford().getY()==y+1) {
+		System.out.println("He carries");
+		return true;
+	}
+	return false;
+}
+
+private boolean rockfordIsUnderElementXY(int x, int y) {
+	if(x==this.model.getRockford().getX() && this.model.getRockford().getY() > y+1)
+		return true;
+	return false;
+}
+
+private void delay(long time) {
+	try {
+		Thread.sleep(time);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+
+public void makeElementXYFallOnTheMap(int x, int y, int finalY) {
+	IMotionless elmnt = this.model.getMap().getOnTheMapXY(x, y);
+	
+	for(int i=y; i<finalY-1;i++) {
+		this.delay(100);
+		this.model.getMap().setOnTheMapXY(null, x, i);
+		this.model.getMap().setOnTheMapXY(elmnt, x, i+1);
+		this.model.notifyModelHasChanged();
+	}
+}
+
+private int calculateFinalY(int x, int y) {
+	IMotionless elmnt = this.model.getMap().getOnTheMapXY(x, y+1);
+	
+	while(elmnt == null) {
+		if(this.rockfordCarriesElementXY(x, y))
+			break;
+		y++;
+		elmnt = this.model.getMap().getOnTheMapXY(x, y);
+	}
+	
+	return y;
+}
 
 }
