@@ -46,13 +46,13 @@ public interface IMap {
 	 * @return the message
 	 */
 	
-	public IMotionless getOnTheMapXY(int x, int y);
+	public IElement getOnTheMapXY(int x, int y);
 	
 	/** Set an element on the map at position (x, y)
 	 * 
-	 * @param element
+	 * @param elmnt
 	 * @param x
 	 * @param y
 	 */
-	public void setOnTheMapXY(IMotionless element, int x, int y);
+	public void setOnTheMapXY(IElement elmnt, int x, int y);
 }

@@ -12,6 +12,7 @@ import contract.IMobile;
 import contract.IModel;
 import contract.IMotionless;
 import contract.Permeability;
+import model.element.mobile.Butterfly;
 import model.element.mobile.Rockford;
 import model.element.motionless.BreakableBrick;
 import model.element.motionless.BrokenBrick;
@@ -70,16 +71,16 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		//this.map = new Map(1,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
-		try {
+		this.map = new Map(1,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
+		/*try {
 			this.map = new Map(1, MAP_KEY, "txt/Level1.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		this.setGround(new Ground(this.getMap().getWidth(), this.getMap().getHeight()));
 		this.setRockford(new Rockford("sprites/74336.png", ROCKFORD_START_X, ROCKFORD_START_Y));
-		//this.fillMap();
+		this.fillMap();
 		this.fillGround();
 	}
 
@@ -143,17 +144,18 @@ public final class Model extends Observable implements IModel {
 	
 	/** Fills the map*/
 	public void fillMap() {
-		for(int y=0;y<this.getMap().getHeight();y+=1) {
-			for(int x=0;x<this.getMap().getWidth();x+=1) {
+		for(int y=0;y<this.getMap().getHeight();y++) {
+			for(int x=0;x<this.getMap().getWidth();x++) {
 				if(x==this.getRockford().getX() && y==this.getRockford().getY())
 					this.getMap().setOnTheMapXY(null, x, y);
+
 				else
 					this.getMap().setOnTheMapXY(MotionlessFactory.createBreakableBrick(), x, y);
 			}
 		}
 		this.getMap().setOnTheMapXY(MotionlessFactory.createUnBreakableBrick(), 10, 10);
 		this.getMap().setOnTheMapXY(MotionlessFactory.createRock(), 15, 20);
-		this.getMap().setOnTheMapXY(MotionlessFactory.createDiamond(), 20, 20);
+		this.getMap().setOnTheMapXY(new Butterfly("sprites/74359.png"), 20, 20);
 	}
 	
 	/**Fills the ground*/
@@ -217,11 +219,12 @@ public final class Model extends Observable implements IModel {
 	}
 	
 	public void makeRockfordMoveElementRightXY(int x, int y) {
-		IMotionless elmnt = this.getMap().getOnTheMapXY(x, y);
+		IElement elmnt = this.getMap().getOnTheMapXY(x, y);
 		this.getMap().setOnTheMapXY(null, x, y);
 		this.getMap().setOnTheMapXY(null, x+1, y);
 		this.getRockford().moveRight();
 	}
+	
 
 	@Override
 	public int getScore() {

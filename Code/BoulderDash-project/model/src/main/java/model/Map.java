@@ -35,7 +35,7 @@ public class Map extends Entity implements IMap{
 	private String	key;
 	
 	/** The elements on the map */
-	private IMotionless[][] onTheMap;
+	private IElement[][] onTheMap;
 
 	/**Instantiates a new Map 
 	 * 
@@ -123,13 +123,13 @@ public class Map extends Entity implements IMap{
 	}
 
 	@Override
-	public IMotionless getOnTheMapXY(int x, int y) {
+	public IElement getOnTheMapXY(int x, int y) {
 		return this.onTheMap[x][y];
 	}
 	
 	@Override
-	public void setOnTheMapXY(IMotionless element, int x, int y) {
-		this.onTheMap[x][y] = (IMotionless) element;
+	public void setOnTheMapXY(IElement element, int x, int y) {
+		this.onTheMap[x][y] = element;
 	}
 	
 	public void generateMapFromFile(String fileUrl) throws IOException {
@@ -155,5 +155,16 @@ public class Map extends Entity implements IMap{
        
 	}
 
-
+	public void moveElementXYRight(int x, int y) {
+		IElement elmnt = this.getOnTheMapXY(x, y);
+		this.setOnTheMapXY(null, x, y);
+		this.setOnTheMapXY(elmnt, x+1, y);
+	}
+	
+	public void moveElementXYLeft(int x, int y) {
+		IElement elmnt = this.getOnTheMapXY(x, y);
+		this.setOnTheMapXY(null, x, y);
+		this.setOnTheMapXY(elmnt, x-1, y);
+	}
+	
 }

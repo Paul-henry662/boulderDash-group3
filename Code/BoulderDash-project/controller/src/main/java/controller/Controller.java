@@ -194,7 +194,7 @@ public final class Controller extends Thread implements IController {
 	}
 	
 	private Permeability getNextElementPermeability(ControllerOrder controllerOrder) {
-		IMotionless nextElement = null;
+		IElement nextElement = null;
 		
 		switch(controllerOrder) {
 		case LEFT:
@@ -217,20 +217,20 @@ public final class Controller extends Thread implements IController {
 		
 		if(nextElement == null)
 			return Permeability.PASSING;
-		return nextElement.getPermeability();
+		return ((IMotionless) nextElement).getPermeability();
 	}
 	
 	public void setGravity() {
-	IMotionless elmnt;
+	IElement elmnt;
 	
 		for(int y=0; y<this.model.getMap().getHeight(); y++) {
 			for(int x=0; x<this.model.getMap().getWidth(); x++) {
-				elmnt = this.model.getMap().getOnTheMapXY(x, y);
+				elmnt = (IMotionless) this.model.getMap().getOnTheMapXY(x, y);
 
-				if(elmnt==null) {
+				if(this.model.getMap().getOnTheMapXY(x, y)==null) {
 					continue;
 				}
-				else if(elmnt.getPermeability() == Permeability.MOVABLE ||elmnt.getPermeability() == Permeability.PICKABLE) {
+				else if(((IMotionless) elmnt).getPermeability() == Permeability.MOVABLE ||((IMotionless) elmnt).getPermeability() == Permeability.PICKABLE) {
 					int finalY = this.calculateFinalY(x, y);
 					this.makeElementXYFallOnTheMap(x, y, finalY);	
 					
@@ -243,74 +243,77 @@ public final class Controller extends Thread implements IController {
 		}
 }
 
-@Override
-public void run() {
-	while(!this.gameIsFinished()) {
-		this.setGravity();
-		this.countTime();
+	@Override
+	public void run() {
+		while(!this.gameIsFinished()) {
+			this.setGravity();
+			this.countTime();
+		}
+		if(this.model.getTimer() == 0)
+			this.view.printMessage("Time's up!");
+		else if(!this.model.rockfordIsAlive())
+			this.view.printMessage("You die!");
 	}
-	this.view.printMessage("Game over!");
-}
 
 
-private boolean rockfordCarriesElementXY(int x, int y) {
-	if(x==this.model.getRockford().getX() && this.model.getRockford().getY()==y+1) {
-		System.out.println("He carries");
-		return true;
-	}
-	return false;
-}
-
-private boolean rockfordIsUnderElementXY(int x, int y) {
-	if(x==this.model.getRockford().getX() && this.model.getRockford().getY() > y+1)
-		return true;
-	return false;
-}
-
-private void delay(long time) {
-	try {
-		Thread.sleep(time);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
-
-public void makeElementXYFallOnTheMap(int x, int y, int finalY) {
-	IMotionless elmnt = this.model.getMap().getOnTheMapXY(x, y);
-	
-	for(int i=y; i<finalY;i++) {
-		this.delay(100);
-		this.model.getMap().setOnTheMapXY(null, x, i);
-		this.model.getMap().setOnTheMapXY(elmnt, x, i+1);
-		this.model.notifyModelHasChanged();
-	}
-}
-
-private int calculateFinalY(int x, int y) {
-	IMotionless nextElmnt = this.model.getMap().getOnTheMapXY(x, y+1);
-	
-	while(nextElmnt == null) {
-		if(this.rockfordCarriesElementXY(x, y))
-			break;
-		
-		y++;
-		nextElmnt = this.model.getMap().getOnTheMapXY(x, y+1);
-	}
-	
-	return y;
-}
-
-private void countTime() {
-	this.model.setTimer(this.model.getTimer()-1);
-	this.model.notifyModelHasChanged();
-	this.delay(1000);
-}
-
-private boolean gameIsFinished() {
-	if(this.model.getTimer() > 0 && this.model.rockfordIsAlive()) 
+	private boolean rockfordCarriesElementXY(int x, int y) {
+		if(x==this.model.getRockford().getX() && this.model.getRockford().getY()==y+1) {
+			System.out.println("He carries");
+			return true;
+		}
 		return false;
-	return true;
-}
+	}
+	
+	private boolean rockfordIsUnderElementXY(int x, int y) {
+		if(x==this.model.getRockford().getX() && this.model.getRockford().getY() > y+1)
+			return true;
+		return false;
+	}
+
+	private void delay(long time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void makeElementXYFallOnTheMap(int x, int y, int finalY) {
+		IElement elmnt = this.model.getMap().getOnTheMapXY(x, y);
+		
+		for(int i=y; i<finalY;i++) {
+			this.delay(100);
+			this.model.getMap().setOnTheMapXY(null, x, i);
+			this.model.getMap().setOnTheMapXY(elmnt, x, i+1);
+			this.model.notifyModelHasChanged();
+		}
+	}
+
+	private int calculateFinalY(int x, int y) {
+		IElement nextElmnt = this.model.getMap().getOnTheMapXY(x, y+1);
+		
+		while(nextElmnt == null) {
+			if(this.rockfordCarriesElementXY(x, y))
+				break;
+			
+			y++;
+			nextElmnt = this.model.getMap().getOnTheMapXY(x, y+1);
+		}
+		
+		return y;
+	}
+
+	private void countTime() {
+		this.model.setTimer(this.model.getTimer()-1);
+		this.model.notifyModelHasChanged();
+		this.delay(1000);
+	}
+
+	private boolean gameIsFinished() {
+		if(this.model.getTimer() > 0 && this.model.rockfordIsAlive()) 
+			return false;
+		return true;
+	}
 
 }

@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -82,6 +83,7 @@ public class ExtrasPanel extends JPanel implements Observer{
 	protected void paintComponent(final Graphics graphics) {	
 		Graphics2D graphics2d = (Graphics2D) graphics;
 		graphics2d.setPaint(Color.white);
+		graphics2d.setFont(new Font("Arial", 20,20));
 		this.paintScore(graphics2d);
 		this.paintTime(graphics2d);
 	}

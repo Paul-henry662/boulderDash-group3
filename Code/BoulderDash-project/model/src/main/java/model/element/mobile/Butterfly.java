@@ -16,8 +16,8 @@ import javax.imageio.ImageIO;
  * 			Gregori Tema
  */
 public class Butterfly extends Enemy {
-	public Butterfly(String imageUrl, int x, int y) {
-		super(imageUrl, x, y);
+	public Butterfly(String imageUrl) {
+		super(imageUrl);
 	}
 	
 	public Butterfly() {
@@ -28,41 +28,18 @@ public class Butterfly extends Enemy {
 	public void loadImages(String imageUrl) throws IOException {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
 		
-		BufferedImage flyPhaseOne = baseImage.getSubimage(176, 0, 16, 16);
-		BufferedImage flyPhaseTwo = baseImage.getSubimage(176, 16, 16, 16);
-		BufferedImage flyPhaseThree = baseImage.getSubimage(176, 32, 16, 16);
-		BufferedImage flyPhaseFour = baseImage.getSubimage(176, 48, 16, 16);
+		BufferedImage flyPhaseOne = baseImage.getSubimage(160, 0, 16, 16);
+		BufferedImage flyPhaseTwo = baseImage.getSubimage(160, 16, 16, 16);
+		BufferedImage flyPhaseThree = baseImage.getSubimage(160, 32, 16, 16);
+		BufferedImage flyPhaseFour = baseImage.getSubimage(160, 48, 16, 16);
 		
 		this.setSpriteByKey("flyPhaseOne", flyPhaseOne);
 		this.setSpriteByKey("flyPhaseTwo", flyPhaseTwo);
 		this.setSpriteByKey("flyPhaseThree", flyPhaseThree);
 		this.setSpriteByKey("flyPhaseFour", flyPhaseFour);
 		
-		this.setCurrentSprite(this.getSpriteByKey("flyPhaseOne"));
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseThree"));
 	}
 
-	@Override
-	public void moveLeft() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveRight() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveUp() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveDown() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }

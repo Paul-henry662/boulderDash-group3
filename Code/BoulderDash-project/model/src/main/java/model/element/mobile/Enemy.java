@@ -1,5 +1,7 @@
 package model.element.mobile;
 
+import model.element.motionless.Motionless;
+
 /**
  * The Class Enemy.
  *
@@ -9,9 +11,9 @@ package model.element.mobile;
  * 			Gregori Tema
  */
 
-public abstract class Enemy extends Mobile {
-	public Enemy(String imageUrl, int x, int y) {
-		super(imageUrl, x, y);
+public abstract class Enemy extends Motionless {
+	public Enemy(String imageUrl) {
+		super(imageUrl);
 	}
 	
 	public Enemy() {
