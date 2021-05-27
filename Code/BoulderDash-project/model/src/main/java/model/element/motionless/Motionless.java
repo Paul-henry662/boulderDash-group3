@@ -13,9 +13,7 @@ import model.element.Element;
  * 			Gregori Tema
  */
 public abstract class Motionless extends Element implements IMotionless{
-	
-	protected Permeability permeability;
-	
+		
 	public Motionless(String imageUrl) {
 		super(imageUrl);
 	}
@@ -24,7 +22,4 @@ public abstract class Motionless extends Element implements IMotionless{
 		super();
 	}
 	
-	public Permeability getPermeability() {
-		return permeability;
-	}
 }

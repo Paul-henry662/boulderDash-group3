@@ -72,4 +72,6 @@ public interface IModel {
 	public boolean rockfordIsAlive();
 	
 	public void setRockfordAlive(boolean b);
+	
+	public void animateButterflies();
 }

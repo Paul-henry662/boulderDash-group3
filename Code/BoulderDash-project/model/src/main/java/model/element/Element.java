@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 import contract.IElement;
+import contract.Permeability;
 
 /**
  * The Class Element.
@@ -18,7 +19,16 @@ public abstract class Element implements IElement{
 	/** Image sprites array for an element. */
 	private HashMap<String, BufferedImage> sprites;
 	private BufferedImage currentSprite;
+	protected Permeability permeability;
 	
+	public Permeability getPermeability() {
+		return permeability;
+	}
+
+	private void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
+	}
+
 	public BufferedImage getCurrentSprite() {
 		return currentSprite;
 	}
@@ -49,6 +59,7 @@ public abstract class Element implements IElement{
 	/**Get an Element's image sprite by key
 	 * 
 	 * @param key
+	 * 		The key is 
 	 * @return
 	 */
 	public BufferedImage getSpriteByKey(String key) {

@@ -15,7 +15,7 @@ public class ViewSound extends Thread {
     private final int EXTERNAL_BUFFER_SIZE = 524288; // 128Kb 
  
     enum Position { 
-        LEFT, RIGHT, NORMAL
+        LEFT, RIGHT, NORMAL;
     };
  
     public ViewSound(String wavfile) { 

@@ -49,7 +49,7 @@ public class Map extends Entity implements IMap{
 		this.setKey(key);
 		this.setWidth(width);
 		this.setHeight(height);
-		this.onTheMap = new IMotionless[width][height];
+		this.onTheMap = new IElement[width][height];
 	}
 	
 	public Map(final int id, final String key, String fileUrl) throws IOException {

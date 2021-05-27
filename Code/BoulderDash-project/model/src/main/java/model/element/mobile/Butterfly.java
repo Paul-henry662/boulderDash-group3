@@ -16,8 +16,8 @@ import javax.imageio.ImageIO;
  * 			Gregori Tema
  */
 public class Butterfly extends Enemy {
-	public Butterfly(String imageUrl) {
-		super(imageUrl);
+	public Butterfly(String imageUrl, int x, int y) {
+		super(imageUrl, x, y);
 	}
 	
 	public Butterfly() {
@@ -38,7 +38,46 @@ public class Butterfly extends Enemy {
 		this.setSpriteByKey("flyPhaseThree", flyPhaseThree);
 		this.setSpriteByKey("flyPhaseFour", flyPhaseFour);
 		
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseOne"));
+	}
+
+	@Override
+	public void moveLeft() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void animate() {
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseOne"));
+		this.delay(500);
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseTwo"));
+		this.delay(500);
 		this.setCurrentSprite(this.getSpriteByKey("flyPhaseThree"));
+		this.delay(500);
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseFour"));
+		this.delay(500);
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseThree"));
+		this.delay(500);
+		this.setCurrentSprite(this.getSpriteByKey("flyPhaseTwo"));
+		this.delay(500);
 	}
 
 	

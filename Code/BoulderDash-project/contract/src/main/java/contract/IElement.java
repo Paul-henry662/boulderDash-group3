@@ -19,4 +19,6 @@ public interface IElement {
 	public void setCurrentSprite(BufferedImage currentSprite);
 	
 	public BufferedImage getSpriteByKey(String key);
+	
+	public Permeability getPermeability();
 }

@@ -17,8 +17,8 @@ import javax.imageio.ImageIO;
  */
 
 public class Skull extends Enemy {
-	public Skull(String imageUrl) {
-		super(imageUrl);
+	public Skull(String imageUrl, int x, int y) {
+		super(imageUrl, x, y);
 	}
 	
 	public Skull() {
@@ -41,6 +41,30 @@ public class Skull extends Enemy {
 		this.setSpriteByKey("PhaseFour", PhaseFour);
 		
 		this.setCurrentSprite(this.getSpriteByKey("PhaseOne"));
+	}
+
+	@Override
+	public void moveLeft() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

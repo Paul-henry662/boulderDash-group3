@@ -4,5 +4,6 @@ public enum Permeability {
 	PASSING,
 	BLOCKING,
 	PICKABLE,
-	MOVABLE
+	MOVABLE,
+	DEADLY
 }

@@ -3,6 +3,7 @@ package controller;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IElement;
+import contract.IEnemy;
 import contract.IModel;
 import contract.IMotionless;
 import contract.IView;
@@ -98,6 +99,9 @@ public final class Controller extends Thread implements IController {
 					case PASSING:
 						this.model.moveRockfordLeft();
 						break;
+					case DEADLY:
+						this.model.setRockfordAlive(false);
+						break;
 					case PICKABLE:
 						this.pick();
 						this.model.moveRockfordLeft();
@@ -112,6 +116,9 @@ public final class Controller extends Thread implements IController {
 						break;
 					case PASSING:
 						this.model.moveRockfordRight();
+						break;
+					case DEADLY:
+						this.killRockford();
 						break;
 					case PICKABLE:
 						this.pick();
@@ -129,6 +136,9 @@ public final class Controller extends Thread implements IController {
 					case PASSING:
 						this.model.moveRockfordUp();
 						break;
+					case DEADLY:
+						this.killRockford();
+						break;
 					case PICKABLE:
 						this.pick();
 						this.model.moveRockfordUp();
@@ -143,6 +153,9 @@ public final class Controller extends Thread implements IController {
 						break;
 					case PASSING:
 						this.model.moveRockfordDown();
+						break;
+					case DEADLY:
+						this.killRockford();						
 						break;
 					case PICKABLE:
 						this.pick();
@@ -217,7 +230,7 @@ public final class Controller extends Thread implements IController {
 		
 		if(nextElement == null)
 			return Permeability.PASSING;
-		return ((IMotionless) nextElement).getPermeability();
+		return nextElement.getPermeability();
 	}
 	
 	public void setGravity() {
@@ -225,12 +238,12 @@ public final class Controller extends Thread implements IController {
 	
 		for(int y=0; y<this.model.getMap().getHeight(); y++) {
 			for(int x=0; x<this.model.getMap().getWidth(); x++) {
-				elmnt = (IMotionless) this.model.getMap().getOnTheMapXY(x, y);
+				elmnt = this.model.getMap().getOnTheMapXY(x, y);
 
 				if(this.model.getMap().getOnTheMapXY(x, y)==null) {
 					continue;
 				}
-				else if(((IMotionless) elmnt).getPermeability() == Permeability.MOVABLE ||((IMotionless) elmnt).getPermeability() == Permeability.PICKABLE) {
+				else if(elmnt.getPermeability() == Permeability.MOVABLE || elmnt.getPermeability() == Permeability.PICKABLE) {
 					int finalY = this.calculateFinalY(x, y);
 					this.makeElementXYFallOnTheMap(x, y, finalY);	
 					
@@ -315,5 +328,25 @@ public final class Controller extends Thread implements IController {
 			return false;
 		return true;
 	}
+	
+	private void killRockford() {
+		this.model.getRockford().setCurrentSprite(this.model.getRockford().getSpriteByKey("dead"));
+		this.model.setRockfordAlive(false);
+	}
+	
+	
+	/*private void animateButterFlies() {
+		IElement elmnt;
+		
+		for(int y=0; y<this.model.getMap().getHeight(); y++) {
+			for(int x=0; x<this.model.getMap().getWidth(); x++) {
+				elmnt = this.model.getMap().getOnTheMapXY(x, y);
+				
+				if(elmnt==null)
+					continue;
+					if(elmnt)
+			}
+		}
+	}*/
 
 }

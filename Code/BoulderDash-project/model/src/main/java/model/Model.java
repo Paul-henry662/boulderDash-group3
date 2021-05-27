@@ -6,6 +6,7 @@ import java.util.Observable;
 
 import contract.ControllerOrder;
 import contract.IElement;
+import contract.IEnemy;
 import contract.IGround;
 import contract.IMap;
 import contract.IMobile;
@@ -13,6 +14,7 @@ import contract.IModel;
 import contract.IMotionless;
 import contract.Permeability;
 import model.element.mobile.Butterfly;
+import model.element.mobile.EnemyFactory;
 import model.element.mobile.Rockford;
 import model.element.motionless.BreakableBrick;
 import model.element.motionless.BrokenBrick;
@@ -155,7 +157,8 @@ public final class Model extends Observable implements IModel {
 		}
 		this.getMap().setOnTheMapXY(MotionlessFactory.createUnBreakableBrick(), 10, 10);
 		this.getMap().setOnTheMapXY(MotionlessFactory.createRock(), 15, 20);
-		this.getMap().setOnTheMapXY(new Butterfly("sprites/74359.png"), 20, 20);
+		this.getMap().setOnTheMapXY(EnemyFactory.createButterfly(20, 20), 20, 20);
+		this.getMap().setOnTheMapXY(EnemyFactory.createButterfly(12, 12), 12, 12);
 	}
 	
 	/**Fills the ground*/
@@ -226,6 +229,7 @@ public final class Model extends Observable implements IModel {
 	}
 	
 
+
 	@Override
 	public int getScore() {
 		return this.score;
@@ -253,5 +257,20 @@ public final class Model extends Observable implements IModel {
 	
 	public void setRockfordAlive(boolean b) {
 		this.rockford.isAlive = b;
+	}
+	
+	public void animateButterflies() {
+		IElement elmnt;
+		
+		for(int y=0; y<this.getMap().getHeight(); y++) {
+			for(int x=0; x<this.getMap().getWidth(); x++) {
+				elmnt = this.getMap().getOnTheMapXY(x, y);
+				
+				if(elmnt == null)
+					continue;
+				if(elmnt.getPermeability() == Permeability.DEADLY)
+					((IEnemy) elmnt).animate();
+			}
+		}
 	}
 }
