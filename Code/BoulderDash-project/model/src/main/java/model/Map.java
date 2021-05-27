@@ -35,7 +35,7 @@ public class Map extends Entity implements IMap{
 	private String	key;
 	
 	/** The elements on the map */
-	private IElement[][] onTheMap;
+	public IElement[][] onTheMap;
 
 	/**Instantiates a new Map 
 	 * 
@@ -62,7 +62,7 @@ public class Map extends Entity implements IMap{
 		return width;
 	}
 
-	private void setWidth(int width) {
+	public void setWidth(int width) {
 		this.width = width;
 	}
 
@@ -70,7 +70,7 @@ public class Map extends Entity implements IMap{
 		return height;
 	}
 
-	private void setHeight(int height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
 

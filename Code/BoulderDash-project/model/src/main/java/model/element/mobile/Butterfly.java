@@ -68,15 +68,7 @@ public class Butterfly extends Enemy {
 	public void animate() {
 		this.setCurrentSprite(this.getSpriteByKey("flyPhaseOne"));
 		this.delay(500);
-		this.setCurrentSprite(this.getSpriteByKey("flyPhaseTwo"));
-		this.delay(500);
-		this.setCurrentSprite(this.getSpriteByKey("flyPhaseThree"));
-		this.delay(500);
 		this.setCurrentSprite(this.getSpriteByKey("flyPhaseFour"));
-		this.delay(500);
-		this.setCurrentSprite(this.getSpriteByKey("flyPhaseThree"));
-		this.delay(500);
-		this.setCurrentSprite(this.getSpriteByKey("flyPhaseTwo"));
 		this.delay(500);
 	}
 

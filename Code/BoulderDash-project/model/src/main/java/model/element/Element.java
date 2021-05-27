@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import contract.IElement;
 import contract.Permeability;
+import entity.Entity;
 
 /**
  * The Class Element.
@@ -17,6 +18,7 @@ import contract.Permeability;
 public abstract class Element implements IElement{
 	
 	/** Image sprites array for an element. */
+	
 	private HashMap<String, BufferedImage> sprites;
 	private BufferedImage currentSprite;
 	protected Permeability permeability;

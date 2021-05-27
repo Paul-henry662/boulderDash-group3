@@ -33,7 +33,7 @@ public final class Model extends Observable implements IModel {
 
 	
 	/**key of the map*/
-	private static final String MAP_KEY = "Map1";
+	private static final String MAP_KEY = "Map2";
 	
 	/**The width of the map */
 	private static final int MAP_WIDTH = 50;
@@ -48,7 +48,7 @@ public final class Model extends Observable implements IModel {
 	private static final int ROCKFORD_START_Y = 5;
 
 	/** The map. */
-	private IMap map;
+	private Map map;
 	
 	/**The character */
 	private Rockford rockford;
@@ -73,17 +73,18 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.map = new Map(1,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
+		//this.map = new Map(5,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
 		/*try {
 			this.map = new Map(1, MAP_KEY, "txt/Level1.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}*/
-		
+		this.loadMap(1);
 		this.setGround(new Ground(this.getMap().getWidth(), this.getMap().getHeight()));
 		this.setRockford(new Rockford("sprites/74336.png", ROCKFORD_START_X, ROCKFORD_START_Y));
-		this.fillMap();
+		//this.fillMap();
 		this.fillGround();
+		//this.saveMap(this.getMap());
 	}
 
 	/**
@@ -96,7 +97,7 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMap()
 	 */
-	public IMap getMap() {
+	public Map getMap() {
 		return this.map;
 	}
 
@@ -121,10 +122,10 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadMap(final String code) {
+	public void loadMap(final int id) {
 		try {
-			final DAOMap daoLevel = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setMap(daoLevel.find(code));
+			final DAOMap dao= new DAOMap(DBConnection.getInstance().getConnection());
+			this.setMap(dao.find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -272,5 +273,20 @@ public final class Model extends Observable implements IModel {
 					((IEnemy) elmnt).animate();
 			}
 		}
+	}
+	
+	public void saveMap(Map map) {
+		try {
+			DAOMap dao = new DAOMap(DBConnection.getInstance().getConnection());
+			dao.create(map);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void loadMap(String code) {
+		// TODO Auto-generated method stub
+		
 	}
 }

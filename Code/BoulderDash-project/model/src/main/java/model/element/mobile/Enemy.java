@@ -13,7 +13,7 @@ import model.element.motionless.Motionless;
  * 			Gregori Tema
  */
 
-public abstract class Enemy extends Mobile implements IEnemy{
+public abstract class Enemy extends Mobile implements IEnemy, Runnable{
 	public Enemy(String imageUrl, int x, int y) {
 		super(imageUrl, x, y);
 		this.permeability = Permeability.DEADLY;
@@ -24,6 +24,10 @@ public abstract class Enemy extends Mobile implements IEnemy{
 	}
 	
 	public void animate() {
+	}
+	
+	public void run() {
+		this.animate();
 	}
 	
 	protected void delay(int time) {
