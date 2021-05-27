@@ -87,10 +87,6 @@ class ViewPanel extends JPanel implements Observer {
 		}
 	}
 	
-	private void paintScore(Graphics graphics) {
-		graphics.drawString("Score: "+this.getViewFrame().getModel().getScore(), 20, 20);
-	}
-	
 	private void paintRockford(Graphics graphics) {
 		int x = this.getViewFrame().getModel().getRockford().getX()*View.SQUARE_SIZE;
 		int y = this.getViewFrame().getModel().getRockford().getY()*View.SQUARE_SIZE;
@@ -105,7 +101,37 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
+	private void followOnX(Graphics graphics) {
+		int rockfordX = this.getViewFrame().getModel().getRockford().getX();
+		int mapWidth = this.getViewFrame().getModel().getMap().getWidth();
+		
+		if(rockfordX >= (int) mapWidth/4)
+			graphics.translate(-2*View.SQUARE_SIZE, 0);
+		if(rockfordX >= (int) mapWidth/3)
+			graphics.translate(-4*View.SQUARE_SIZE, 0);
+		if(rockfordX >= (int) mapWidth/2)
+			graphics.translate(-6*View.SQUARE_SIZE, 0);
+		if(rockfordX >= (int) 2*mapWidth/3)
+			graphics.translate(-8*View.SQUARE_SIZE, 0);
+		if(rockfordX >= (int) 3*mapWidth/4)
+			graphics.translate(-10*View.SQUARE_SIZE, 0);
+	}
 	
+	private void followOnY(Graphics graphics) {
+		int rockfordY = this.getViewFrame().getModel().getRockford().getY();
+		int mapHeight = this.getViewFrame().getModel().getMap().getHeight();
+		
+		if(rockfordY >= (int) mapHeight/4)
+			graphics.translate(0, -2*View.SQUARE_SIZE);
+		if(rockfordY >= (int) mapHeight/3)
+			graphics.translate(0, -4*View.SQUARE_SIZE);
+		if(rockfordY >= (int) mapHeight/2)
+			graphics.translate(0, -6*View.SQUARE_SIZE);
+		if(rockfordY >= (int) 2*mapHeight/3)
+			graphics.translate(0, -8*View.SQUARE_SIZE);
+		if(rockfordY >= (int) 3*mapHeight/4)
+			graphics.translate(0, -10*View.SQUARE_SIZE);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -115,10 +141,11 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {		
 		Graphics2D graphics2d = (Graphics2D) graphics;
+		graphics2d.scale(2, 2);
+		this.followOnX(graphics2d);
+		this.followOnY(graphics2d);
 		this.paintGround(graphics2d);
 		this.paintMap(graphics2d);
 		this.paintRockford(graphics2d);
-		graphics2d.setPaint(Color.white);
-		this.paintScore(graphics2d);
 	}
 }

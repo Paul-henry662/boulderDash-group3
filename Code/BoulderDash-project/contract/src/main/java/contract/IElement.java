@@ -15,4 +15,8 @@ public interface IElement {
 	
 	/** Get the current sprite of an element. */
 	public BufferedImage getCurrentSprite();
+	
+	public void setCurrentSprite(BufferedImage currentSprite);
+	
+	public BufferedImage getSpriteByKey(String key);
 }

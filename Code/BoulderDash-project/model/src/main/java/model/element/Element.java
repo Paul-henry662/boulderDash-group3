@@ -23,7 +23,7 @@ public abstract class Element implements IElement{
 		return currentSprite;
 	}
 
-	protected void setCurrentSprite(BufferedImage currentSprite) {
+	public void setCurrentSprite(BufferedImage currentSprite) {
 		this.currentSprite = currentSprite;
 	}
 

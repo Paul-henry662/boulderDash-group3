@@ -64,4 +64,12 @@ public interface IModel {
 	public void makeRockfordMoveElementRightXY(int x, int y);
 
 	void notifyModelHasChanged();
+	
+	int getTimer();
+	
+	void setTimer(int timer);
+	
+	public boolean rockfordIsAlive();
+	
+	public void setRockfordAlive(boolean b);
 }

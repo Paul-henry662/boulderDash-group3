@@ -48,13 +48,23 @@ public final class Model extends Observable implements IModel {
 	private IMap map;
 	
 	/**The character */
-	private IMobile rockford;
+	private Rockford rockford;
 	
 	/** The ground*/
 	private IGround ground;
 	
 	/** The score */
 	private int score;
+	
+	private int timer = 60;
+
+	public int getTimer() {
+		return timer;
+	}
+
+	public void setTimer(int timer) {
+		this.timer = timer;
+	}
 
 	/**
 	 * Instantiates a new model.
@@ -164,7 +174,7 @@ public final class Model extends Observable implements IModel {
 	 * 
 	 * @param rockford
 	 */
-	private void setRockford(IMobile rockford) {
+	private void setRockford(Rockford rockford) {
 		this.rockford = rockford;
 	}
 	
@@ -232,4 +242,13 @@ public final class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 	
+	public boolean rockfordIsAlive() {
+		if(rockford.isAlive)
+			return true;
+		return false;
+	}
+	
+	public void setRockfordAlive(boolean b) {
+		this.rockford.isAlive = b;
+	}
 }

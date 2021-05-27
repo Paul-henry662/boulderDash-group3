@@ -15,6 +15,8 @@ import javax.imageio.ImageIO;
  * 			Gregori Tema
  */
 public class Rockford extends Mobile {
+	
+	public boolean isAlive;
 	/** Instantiates a new Rockford
 	 * 
 	 * @param imageUrl
@@ -27,8 +29,9 @@ public class Rockford extends Mobile {
 	/** Instantiates a new Rockford.*/
 	public Rockford() {
 		super();
+		this.isAlive = true;
 	}
-	
+
 	@Override
 	public void loadImages(String imageUrl) throws IOException {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
@@ -44,6 +47,7 @@ public class Rockford extends Mobile {
 		BufferedImage stepUp = baseImage.getSubimage(32, 80, 16, 16);
 		BufferedImage stepDown = baseImage.getSubimage(0, 80, 16, 16);
 
+		BufferedImage dead = baseImage.getSubimage(64, 80, 16, 16);
 		
 		this.setSpriteByKey("stepRightPhaseOne", stepRightPhaseOne);
 		this.setSpriteByKey("stepRightPhaseTwo", stepRightPhaseTwo);
@@ -53,7 +57,7 @@ public class Rockford extends Mobile {
 		this.setSpriteByKey("stepLeftPhaseThree", stepLeftPhaseThree);
 		this.setSpriteByKey("stepUp", stepUp);
 		this.setSpriteByKey("stepDown", stepDown);
-		
+		this.setSpriteByKey("dead", dead);
 		this.setCurrentSprite(this.getSpriteByKey("stepRightPhaseOne"));
 	}
 
