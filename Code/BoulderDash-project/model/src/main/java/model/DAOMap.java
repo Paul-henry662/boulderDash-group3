@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import contract.IElement;
 import model.element.motionless.BreakableBrick;
@@ -117,16 +118,25 @@ class DAOMap extends DAOEntity<Map> {
 			final ResultSet resultSet = call.getResultSet();
 			
 			if (resultSet.first()) {
-				char[] elements = resultSet.getString("elements").toCharArray();
+				ArrayList<String> elements = new ArrayList<String>();
 				map.setId(id);
 				map.setKey(resultSet.getString("name"));
 				map.setWidth(resultSet.getInt("width"));
 				map.setHeight(resultSet.getInt("height"));
+				String txt = resultSet.getString("elements");
 				
+				
+				for(int i=0; i<map.getHeight();i++) {
+					elements.add(txt.substring(i*map.getWidth(), (i+1)*map.getWidth()));
+				}
+				
+				System.out.println(elements);
 				
 				for(int y=0; y<map.getHeight(); y++) {
-					for(int x=0; x<map.getWidth(); x++)
-						map.setOnTheMapXY(MotionlessFactory.getFromFileSymbol(elements[x]), x, y);
+					for(int x=0; x<map.getWidth(); x++) {
+						map.setOnTheMapXY(MotionlessFactory.getFromFileSymbol(elements.get(y).charAt(x)), x, y);
+					}
+					//System.out.println("\n");
 				}
 			}
 			

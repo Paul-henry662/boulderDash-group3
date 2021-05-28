@@ -16,4 +16,19 @@
     <fullyQualifiedTypeName name="java.awt.Image"/>
     <fullyQualifiedTypeName name="java.awt.Rectangle"/>
     <fullyQualifiedTypeName name="java.awt.Dimension"/>
+    <fullyQualifiedTypeName name="model.element.mobile.Butterfly"/>
+    <fullyQualifiedTypeName name="java.awt.Font"/>
+    <fullyQualifiedTypeName name="model.element.motionless.Motionless"/>
+    <fullyQualifiedTypeName name="model.element.mobile.EnemyFactory"/>
+    <fullyQualifiedTypeName name="javax.lang.model.element.Element"/>
+    <fullyQualifiedTypeName name="model.element.Element"/>
+    <fullyQualifiedTypeName name="contract.IMobile"/>
+    <fullyQualifiedTypeName name="contract.Permeability"/>
+    <fullyQualifiedTypeName name="contract.IEnemy"/>
+    <fullyQualifiedTypeName name="java.sql.CallableStatement"/>
+    <fullyQualifiedTypeName name="entity.Entity"/>
+    <fullyQualifiedTypeName name="contract.IElement"/>
+    <fullyQualifiedTypeName name="model.element.motionless.UnBreakableBrick"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="model.element.motionless.MotionlessFactory"/>
 </qualifiedTypeNameHistroy>

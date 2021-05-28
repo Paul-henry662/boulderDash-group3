@@ -23,8 +23,10 @@ public class BreakableBrick extends Brick {
 		BufferedImage baseImage = ImageIO.read(new File(imageUrl));
 		
 		BufferedImage normal = baseImage.getSubimage(16, 0, 16, 16);
+		BufferedImage grass = baseImage.getSubimage(16, 12*16, 16, 16);
 		
 		this.setSpriteByKey("normal", normal);
+		this.setSpriteByKey("grass", grass);
 		this.setCurrentSprite(this.getSpriteByKey("normal"));
 	}
 	

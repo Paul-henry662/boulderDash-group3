@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.sound.sampled.*; 
 
  
-public class ViewSound extends Thread { 
+class ViewSound extends Thread { 
  
     private String filename;
  

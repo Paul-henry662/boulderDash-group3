@@ -11,7 +11,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-public class ExtrasPanel extends JPanel implements Observer{
+class ExtrasPanel extends JPanel implements Observer{
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	

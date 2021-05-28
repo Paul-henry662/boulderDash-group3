@@ -59,6 +59,16 @@ public class MotionlessFactory {
 		case 'R':
 			elmnt = ROCK;
 			break;
+		case '4':
+			UNBREAKABLE_BRICK.setCurrentSprite(UNBREAKABLE_BRICK.getSpriteByKey("blue"));
+			return UNBREAKABLE_BRICK;
+		case '6':
+			BREAKABLE_BRICK.setCurrentSprite(BREAKABLE_BRICK.getSpriteByKey("grass"));
+			return BREAKABLE_BRICK;
+		case 'O':
+			return ROCK;
+		case '5':
+			return DIAMOND;
 		default:
 			break;	
 		}

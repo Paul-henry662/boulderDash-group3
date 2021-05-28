@@ -43,26 +43,24 @@ public class Butterfly extends Enemy {
 
 	@Override
 	public void moveLeft() {
-		// TODO Auto-generated method stub
-		
+		this.setX(this.getX()-1);
 	}
 
 	@Override
 	public void moveRight() {
-		// TODO Auto-generated method stub
+		this.setX(this.getX()+1);
 		
 	}
 
 	@Override
 	public void moveUp() {
-		// TODO Auto-generated method stub
+		this.setX(this.getY()-1);
 		
 	}
 
 	@Override
 	public void moveDown() {
-		// TODO Auto-generated method stub
-		
+		this.setX(this.getY()+1);
 	}
 	
 	public void animate() {
@@ -71,6 +69,16 @@ public class Butterfly extends Enemy {
 		this.setCurrentSprite(this.getSpriteByKey("flyPhaseFour"));
 		this.delay(500);
 	}
-
+	
+	public void move() {
+		this.moveRight();
+		this.delay(500);
+		this.moveDown();
+		this.delay(500);
+		this.moveLeft();
+		this.delay(500);
+		this.moveUp();
+		this.delay(500);
+	}
 	
 }

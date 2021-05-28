@@ -30,6 +30,10 @@ public abstract class Enemy extends Mobile implements IEnemy, Runnable{
 		this.animate();
 	}
 	
+	public void move() {
+		
+	}
+	
 	protected void delay(int time) {
 		try {
 			Thread.sleep(time);

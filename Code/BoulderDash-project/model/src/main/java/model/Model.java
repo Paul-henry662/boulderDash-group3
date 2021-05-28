@@ -33,7 +33,7 @@ public final class Model extends Observable implements IModel {
 
 	
 	/**key of the map*/
-	private static final String MAP_KEY = "Map2";
+	private static final String MAP_KEY = "Map5";
 	
 	/**The width of the map */
 	private static final int MAP_WIDTH = 50;
@@ -74,12 +74,12 @@ public final class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		//this.map = new Map(5,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
-		/*try {
-			this.map = new Map(1, MAP_KEY, "txt/Level1.txt");
+		try {
+			this.map = new Map(5, MAP_KEY, "txt/Level5.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
-		this.loadMap(1);
+		}
+		//this.loadMap(1);
 		this.setGround(new Ground(this.getMap().getWidth(), this.getMap().getHeight()));
 		this.setRockford(new Rockford("sprites/74336.png", ROCKFORD_START_X, ROCKFORD_START_Y));
 		//this.fillMap();
@@ -275,6 +275,22 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 	
+	public void moveButterflies() {
+		IElement elmnt;
+		
+		for(int y=0; y<this.getMap().getHeight(); y++) {
+			for(int x=0; x<this.getMap().getWidth(); x++) {
+				elmnt = this.getMap().getOnTheMapXY(x, y);
+				
+				if(elmnt == null)
+					continue;
+				if(elmnt.getPermeability() == Permeability.DEADLY) {
+					
+				}
+			}
+		}
+	}
+	
 	public void saveMap(Map map) {
 		try {
 			DAOMap dao = new DAOMap(DBConnection.getInstance().getConnection());
@@ -288,5 +304,14 @@ public final class Model extends Observable implements IModel {
 	public void loadMap(String code) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void delay(int time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

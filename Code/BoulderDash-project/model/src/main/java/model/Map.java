@@ -10,6 +10,7 @@ import contract.IMap;
 import contract.IMotionless;
 import entity.Entity;
 import model.element.Element;
+import model.element.mobile.EnemyFactory;
 import model.element.motionless.MotionlessFactory;
 
 /**
@@ -142,11 +143,17 @@ public class Map extends Entity implements IMap{
 		line = br.readLine();
 		this.setHeight(Integer.parseInt(line));
 		
-		this.onTheMap = new IMotionless[this.getWidth()][this.getHeight()];
+		this.onTheMap = new IElement[this.getWidth()][this.getHeight()];
 		line = br.readLine();
         while (line != null && y < this.getWidth()) {
             for (int x = 0; x < line.toCharArray().length; x++) {
-            	this.setOnTheMapXY(MotionlessFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
+            	IElement motionlessElement = MotionlessFactory.getFromFileSymbol(line.toCharArray()[x]);
+            	IElement mobileElement = EnemyFactory.getFromFileSymbol(line.toCharArray()[x], x, y);
+            	
+            	if(mobileElement != null)
+            		this.setOnTheMapXY(mobileElement, x, y);
+            	else
+            		this.setOnTheMapXY(motionlessElement, x, y);
             }
             line = br.readLine();
             y++;
