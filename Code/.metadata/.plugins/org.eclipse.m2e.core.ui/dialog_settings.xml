@@ -3,6 +3,10 @@
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="C:\Users\PAD-PCA-NGOUNOU\Desktop\P-H\Informatique\UCAC-ICAM\Projets\boulderDash-group3\Code\BoulderDash-project"/>
+<<<<<<< HEAD
+=======
+			<item value="C:\Users\PAD-PCA-NGOUNOU\Desktop\P-H\Informatique\UCAC-ICAM\Projets\boulderDash-group3\Ressources\showboard-master"/>
+>>>>>>> origin/implementation
 			<item value="C:\Users\PAD-PCA-NGOUNOU\Desktop\P-H\Informatique\UCAC-ICAM\Projets\projet POO_UML_Java\Code\JPU-BlankProject"/>
 			<item value="C:\Users\PAD-PCA-NGOUNOU\Desktop\P-H\Informatique\UCAC-ICAM\Projets\projet POO_UML_Java\Ressources\JPU-BlankProject"/>
 		</list>
@@ -118,5 +122,19 @@
 		<item key="height" value="667"/>
 		<item key="x" value="985"/>
 		<item key="y" value="261"/>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="jpublankproject"/>
+			<item value="showboard2"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="showboard2"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
 	</section>
 </section>
