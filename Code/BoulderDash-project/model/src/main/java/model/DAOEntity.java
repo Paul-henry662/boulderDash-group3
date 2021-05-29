@@ -8,7 +8,7 @@ import entity.Entity;
 /**
  * The Class DAOEntity.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

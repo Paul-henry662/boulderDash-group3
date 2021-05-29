@@ -6,7 +6,7 @@ import model.element.Element;
 /**
  * The Class Mobile.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

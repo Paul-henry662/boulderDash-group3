@@ -20,7 +20,7 @@ public class DiamondTest extends MotionlessTest {
 	@Override
 	public void testLoadImages() {
 		try {
-			this.element.loadImages("sprites/diamond.png");
+			this.element.loadImages("sprites/74359.png");
 		} catch(IOException e) {
 			fail("Can't read input file");
 		}

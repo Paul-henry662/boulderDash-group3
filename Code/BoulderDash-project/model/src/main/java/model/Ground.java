@@ -7,7 +7,7 @@ import model.element.motionless.BrokenBrick;
 /**
  * The Class IGround.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

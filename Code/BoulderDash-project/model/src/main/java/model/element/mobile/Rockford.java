@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 /**
  * The Class Rockford.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

@@ -3,7 +3,7 @@ package contract;
 /**
  * The Interface IController.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

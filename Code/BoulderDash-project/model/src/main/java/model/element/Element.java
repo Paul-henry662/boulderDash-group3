@@ -10,7 +10,7 @@ import entity.Entity;
 /**
  * The Class Element.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

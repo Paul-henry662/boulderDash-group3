@@ -16,7 +16,7 @@ import model.element.motionless.MotionlessFactory;
 /**
  * The Class Map.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 /**
  * The Class Butterfly.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
@@ -54,13 +54,13 @@ public class Butterfly extends Enemy {
 
 	@Override
 	public void moveUp() {
-		this.setX(this.getY()-1);
+		this.setY(this.getY()-1);
 		
 	}
 
 	@Override
 	public void moveDown() {
-		this.setX(this.getY()+1);
+		this.setY(this.getY()+1);
 	}
 	
 	public void animate() {

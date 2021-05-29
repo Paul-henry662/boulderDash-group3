@@ -7,7 +7,7 @@ import model.element.motionless.Motionless;
 /**
  * The Class Enemy.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

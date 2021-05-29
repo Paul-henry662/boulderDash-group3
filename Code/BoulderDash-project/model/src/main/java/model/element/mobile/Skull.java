@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 /**
  * The Class Skull.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
@@ -45,26 +45,24 @@ public class Skull extends Enemy {
 
 	@Override
 	public void moveLeft() {
-		// TODO Auto-generated method stub
-		
+		this.setX(this.getX()-1);
 	}
 
 	@Override
 	public void moveRight() {
-		// TODO Auto-generated method stub
+		this.setX(this.getX()+1);
 		
 	}
 
 	@Override
 	public void moveUp() {
-		// TODO Auto-generated method stub
+		this.setY(this.getY()-1);
 		
 	}
 
 	@Override
 	public void moveDown() {
-		// TODO Auto-generated method stub
-		
+		this.setY(this.getY()+1);
 	}
 	
 }
