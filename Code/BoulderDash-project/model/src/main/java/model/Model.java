@@ -69,13 +69,15 @@ public final class Model extends Observable implements IModel {
 		this.timer = timer;
 	}
 
-	/**
-	 * Instantiates a new model.
+	/** Instantiates a new model. 
+	 * 
+	 * @param mapUrl
+	 * 		the url of the map.
 	 */
-	public Model() {
+	public Model(String mapUrl) {
 		//this.map = new Map(5,MAP_KEY, MAP_WIDTH, MAP_HEIGHT);
 		try {
-			this.map = new Map(5, MAP_KEY, "txt/Level5.txt");
+			this.map = new Map(5, MAP_KEY, mapUrl);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -87,6 +89,11 @@ public final class Model extends Observable implements IModel {
 		//this.saveMap(this.getMap());
 	}
 
+	public Model() {
+		this.map = new Map();
+		this.setGround(new Ground(this.getMap().getWidth(), this.getMap().getHeight()));
+		this.setRockford(new Rockford("sprites/74336.png", ROCKFORD_START_X, ROCKFORD_START_Y));
+	}
 	/**
      * Gets the map.
      *
@@ -114,8 +121,8 @@ public final class Model extends Observable implements IModel {
 	/**
      * Load map.
      *
-     * @param code
-     *            the code
+     * @param id
+     *            the id
      */
 	/*
 	 * (non-Javadoc)
@@ -179,6 +186,7 @@ public final class Model extends Observable implements IModel {
 	/** Sets the character
 	 * 
 	 * @param rockford
+	 * 		the character.
 	 */
 	private void setRockford(Rockford rockford) {
 		this.rockford = rockford;
@@ -189,7 +197,11 @@ public final class Model extends Observable implements IModel {
 		return ground;
 	}
 	
-	/**Sets the ground*/
+	/**Sets the ground
+	 * 
+	 * @param ground
+	 * 		the new ground.
+	 */
 	private void setGround(Ground ground) {
 		this.ground = ground;
 	}

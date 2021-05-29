@@ -11,10 +11,16 @@ package contract;
 
 public interface IMap {
 	
-	/** Get the width of the map. */
+	/** Get the width of the map.
+	 * 
+	 * @return the width of the map.
+	 */
 	public int getWidth();
 
-	/** Get the height of the map. */
+	/** Get the height of the map.
+	 * 
+	 * @return the height of the map.
+	 */
 	public int getHeight();
 
 	/**
@@ -40,19 +46,23 @@ public interface IMap {
 	public String getKey();
 	
 
-	/**
-	 * Gets the message.
-	 *
-	 * @return the message
+	/** Get an element on the map at position (x, y)
+	 * 
+	 * @param x
+	 * 			the x position.
+	 * @param y
+	 * 			the y position.
 	 */
-	
 	public IElement getOnTheMapXY(int x, int y);
 	
 	/** Set an element on the map at position (x, y)
 	 * 
 	 * @param elmnt
+	 * 			the element.
 	 * @param x
+	 * 			the x position.
 	 * @param y
+	 * 			the y position.
 	 */
 	public void setOnTheMapXY(IElement elmnt, int x, int y);
 }

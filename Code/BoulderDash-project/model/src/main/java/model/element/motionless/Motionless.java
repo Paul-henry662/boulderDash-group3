@@ -7,7 +7,7 @@ import model.element.Element;
 /**
  * The Class Motionless.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema

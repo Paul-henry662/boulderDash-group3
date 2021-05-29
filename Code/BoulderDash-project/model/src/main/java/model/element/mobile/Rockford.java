@@ -20,7 +20,11 @@ public class Rockford extends Mobile {
 	/** Instantiates a new Rockford
 	 * 
 	 * @param imageUrl
-	 * 		Rockford's image sprite url.
+	 * 		the url of the base image.
+	 * @param x
+	 * 		the x position.
+	 * @param y
+	 * 		the y position.
 	 */
 	public Rockford(String imageUrl, int x, int y) {
 		super(imageUrl, x, y);

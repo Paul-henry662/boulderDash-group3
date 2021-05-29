@@ -62,7 +62,7 @@ public abstract class Element implements IElement{
 	 * 
 	 * @param key
 	 * 		The key is 
-	 * @return
+	 * @return the sprite.
 	 */
 	public BufferedImage getSpriteByKey(String key) {
 		return this.sprites.get(key);
@@ -82,6 +82,7 @@ public abstract class Element implements IElement{
 	 * @param imageUrl
 	 * 			the url of the base image.
 	 * @throws IOException 
+	 * 			throws an IOException if file can't be read.
 	 */
 	public void loadImages(String imageUrl) throws IOException {
 	}

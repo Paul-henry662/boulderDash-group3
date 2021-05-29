@@ -41,9 +41,13 @@ public class Map extends Entity implements IMap{
 	/**Instantiates a new Map 
 	 * 
 	 * @param id
+	 * 		the id.
 	 * @param key
+	 * 		the key.
 	 * @param width
+	 * 		the width.
 	 * @param height
+	 * 		the height.
 	 */
 	public Map(final int id, final String key, final int width, final int height) {
 		this.setId(id);

@@ -10,7 +10,10 @@ import contract.Permeability;
 
 /**
  * The Class Rock
- * @authors PAD-PCA-NGOUNOU
+ * @author Paul-henry NGANKAM
+ * 			Georges Arthur Balog
+ * 			Prince Jordan Tankwa
+ * 			Gregori Tema
  *
  */
 public class Rock extends Motionless{

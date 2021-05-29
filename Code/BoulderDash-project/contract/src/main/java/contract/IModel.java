@@ -21,8 +21,10 @@ public interface IModel {
 	 */
 	IMap getMap();
 	
-	/**
-	 * Gets the ground*/
+	/**Get the ground
+	 * 
+	 * @return the ground.
+	 */
 	IGround getGround();
 
 	/**
@@ -33,11 +35,6 @@ public interface IModel {
 	 */
 	void loadMap(String code);
 	
-	/**
-	 * Moves the character according to a ControllerOrder.
-	 * 
-	 * @param controllerOrder
-	 */
 	public void moveRockfordLeft();
 	
 	public void moveRockfordRight();

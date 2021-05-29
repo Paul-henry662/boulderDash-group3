@@ -20,10 +20,14 @@ public abstract class Mobile extends Element implements IMobile{
 	/** The y position of a Mobile element*/
 	private int y;
 	
-	/** Instantiates a new Mobile element
+	/** Instantiates a new Mobile element*
 	 * 
 	 * @param imageUrl
-	 * 		element's image sprite url.
+	 * 		the url of the base image.
+	 * @param x
+	 * 		the x position.
+	 * @param y
+	 * 		the y poisition.
 	 */
 	public Mobile(String imageUrl, int x, int y) {
 		super(imageUrl);

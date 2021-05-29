@@ -2,10 +2,16 @@ package contract;
 
 public interface IMobile extends IElement{
 	
-	/** Get the x position of a Mobile element*/
+	/** Get the x position of a Mobile element
+	 * 
+	 * @return the x position
+	 */
 	public int getX();
 	
-	/** Get the y position of a Mobile element*/
+	/** Get the y position of a Mobile element
+	 * 
+	 * @return the y position
+	 */
 	public int getY();
 	
 	/**Move a Mobile element on the left*/

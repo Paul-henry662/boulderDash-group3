@@ -13,7 +13,10 @@ import java.io.IOException;
  */
 public interface IElement {
 	
-	/** Get the current sprite of an element. */
+	/** Get the current sprite of an element 
+	 * 
+	 * @return the currentSprite of the element
+	 */
 	public BufferedImage getCurrentSprite();
 	
 	public void setCurrentSprite(BufferedImage currentSprite);

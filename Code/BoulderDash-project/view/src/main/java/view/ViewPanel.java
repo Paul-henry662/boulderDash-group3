@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 /**
  * The class ViewPanel.
  *
- * @authors Paul-henry NGANKAM
+ * @author Paul-henry NGANKAM
  * 			Georges Arthur Balog
  * 			Prince Jordan Tankwa
  * 			Gregori Tema
@@ -67,6 +67,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** Paints the ground behind the map 
 	 * 
 	 * @param graphics
+	 * 			the graphics component.
 	 */
 	private void paintGround(Graphics graphics) {
 		for(int y=0; y<this.getViewFrame().getModel().getGround().getHeight(); y++) {
@@ -78,6 +79,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** Paints the map 
 	 * 
 	 * @param graphics
+	 * 		the graphics component.
 	 */
 	private void paintMap(Graphics graphics) {
 		for(int y=0; y<this.getViewFrame().getModel().getMap().getHeight(); y++) {
