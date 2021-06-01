@@ -1,6 +1,6 @@
-<<<<<<< HEAD
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Mobile tests refined</message>\r\n</messages>
-=======
->>>>>>> conception
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=conception
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Showboard submodule removed, tests for element package ok, tests suites&\#x0A;added.</message>\r\n<message>Mobile tests refined</message>\r\n</messages>
 eclipse.preferences.version=1
 repositories_view_filters=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<FilterCache/>
